@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class TabBarButton extends StatelessWidget {
+class TitleBarButton extends StatelessWidget {
   final VoidCallback onPressed;
   final IconData icon;
 
-  const TabBarButton({super.key, required this.onPressed, required this.icon});
+  const TitleBarButton({super.key, required this.onPressed, required this.icon});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 5),
+      padding: const EdgeInsets.only(left: 3),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
@@ -22,7 +22,7 @@ class TabBarButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(1)
           )
         ),
-        child: Icon(icon, size: 20),
+        child: Icon(icon, size: 20, color: Colors.black,),
       ),
     );
   }
