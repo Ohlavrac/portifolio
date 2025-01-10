@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/presentation/ui/widgets/title_bar_button.dart';
+import 'package:portifolio/presentation/ui/widgets/window_title_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -51,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+      //USER INFO
       Visibility(
         visible: windowsOpen[1],
         child: Positioned(
@@ -59,8 +62,38 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Draggable(
             //feedbackOffset: endpos2,
             feedback: (Container(color: Colors.black, height: 100, width: 100,)),
-            child: (Container(color: Colors.black, height: 100, width: 100,)),
             childWhenDragging: (Container(color: Colors.transparent, height: 100, width: 100)),
+            child: Container(
+              height: 245,
+              width: 305,
+              color: Colors.grey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                //crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  WindowTitleBar(
+                    titleBarHeight: 35, 
+                    titleBarWidth: 297, 
+                    title: "User Informations", 
+                    onPressedMinimize: () {},
+                    onPressedMaximize: () {}, 
+                    onPressedClose: () {}
+                  ),
+                  Container(
+                    height: 200,
+                    width: 300,
+                    color: Colors.grey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("OLA SO"),
+                        Text("OLA MUNDO")
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
             onDragUpdate: (details) {
               setState(() {
                 endpos2 = details.localPosition;
