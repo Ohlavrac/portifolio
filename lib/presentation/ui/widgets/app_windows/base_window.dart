@@ -19,7 +19,7 @@ class BaseWindow extends StatefulWidget {
     required this.title, 
     required this.windowWidth, 
     required this.windowHeight, 
-    required this.screenwidth, 
+    required this.screenwidth,
     required this.screenheight, 
     required this.offsetPosition
   });
@@ -30,6 +30,7 @@ class BaseWindow extends StatefulWidget {
 
 class _BaseWindowState extends State<BaseWindow> {
   Offset pos = Offset.zero;
+  late bool isNOTMinimizi = widget.isVisible;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,11 @@ class _BaseWindowState extends State<BaseWindow> {
                   titleBarHeight: 35, 
                   titleBarWidth: widget.windowWidth-8, 
                   title: widget.title, 
-                  onPressedMinimize: () {},
+                  onPressedMinimize: () {
+                    setState(() {
+                      isNOTMinimizi == true ? isNOTMinimizi = false : isNOTMinimizi = true;
+                    });
+                  },
                   onPressedMaximize: () {}, 
                   onPressedClose: () {}
                 ),
@@ -89,21 +94,23 @@ class _BaseWindowState extends State<BaseWindow> {
                   titleBarHeight: 35, 
                   titleBarWidth: widget.windowWidth-8, 
                   title: widget.title, 
-                  onPressedMinimize: () {},
+                  onPressedMinimize: () {
+                    setState(() {
+                      isNOTMinimizi == true ? isNOTMinimizi = false : isNOTMinimizi = true;
+                    });
+                  },
                   onPressedMaximize: () {}, 
-                  onPressedClose: () {}
+                  onPressedClose: () {
+                    setState(() {
+                      isNOTMinimizi = false;
+                    });
+                  }
                 ),
                 Container(
                   height: widget.windowHeight-45,
                   width: widget.windowWidth-5,
                   color: Color(0xffc1c1c1),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("OLA SO"),
-                      Text("OLA MUNDO")
-                    ],
-                  ),
+                  child: Container(),
                 )
               ],
             ),

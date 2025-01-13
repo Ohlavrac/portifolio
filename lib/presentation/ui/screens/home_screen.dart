@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
-import 'package:portifolio/presentation/ui/widgets/title_bar_button.dart';
-import 'package:portifolio/presentation/ui/widgets/window_title_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
