@@ -19,14 +19,14 @@ class WindowTitleBar extends StatelessWidget {
     return Container(
       height: titleBarHeight,
       width: titleBarWidth,
-      color: const Color.fromARGB(255, 31, 28, 221),
+      color: Colors.black,
       child: Padding(
         padding: const EdgeInsets.all(5),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(title),
+            Text(title, style: TextStyle(color: Color(0xFFF3E9DC)),),
             Row(
               children: [
                 TitleBarButton(
