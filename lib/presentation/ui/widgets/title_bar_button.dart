@@ -15,7 +15,7 @@ class TitleBarButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           minimumSize: Size(30, 30),
           maximumSize:  Size(30, 30),
-          backgroundColor: Colors.grey,
+          backgroundColor: Color(0xffc1c1c1),
           iconSize: 30,
           padding: EdgeInsets.all(0),
           shape: RoundedRectangleBorder(
