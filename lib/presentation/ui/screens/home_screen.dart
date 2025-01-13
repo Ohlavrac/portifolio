@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
 import 'package:portifolio/presentation/ui/widgets/title_bar_button.dart';
 import 'package:portifolio/presentation/ui/widgets/window_title_bar.dart';
 
@@ -26,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     double height = MediaQuery.sizeOf(context).height;
 
     return Scaffold(
+      backgroundColor: Color(0xFF4E6851),
       body: Stack(
         children: [
           Visibility(
@@ -54,19 +56,53 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
       //USER INFO
-      Visibility(
+      /*Visibility(
         visible: windowsOpen[1],
         child: Positioned(
           left: endpos2.dx == 0 && endpos2.dy == 0 ? width/2-50 : endpos2.dx,
           top: endpos2.dx == 0 && endpos2.dy == 0 ? height/2-50 : endpos2.dy,
           child: Draggable(
-            //feedbackOffset: endpos2,
-            feedback: (Container(color: Colors.black, height: 100, width: 100,)),
-            childWhenDragging: (Container(color: Colors.transparent, height: 100, width: 100)),
-            child: Container(
+            ignoringFeedbackPointer: false,
+            dragAnchorStrategy: (draggable, context, position) {
+              print("DX: ${draggable.feedbackOffset.dx + 245/2} | DY: ${draggable.feedbackOffset.dy + 305 / 2}");
+              return Offset(draggable.feedbackOffset.dx, draggable.feedbackOffset.dy);
+            },
+            feedbackOffset: Offset(100, 100),
+            feedback: Container(
               height: 245,
               width: 305,
-              color: Colors.grey,
+              color: Color(0xffc1c1c1),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                //crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  WindowTitleBar(
+                    titleBarHeight: 35, 
+                    titleBarWidth: 297, 
+                    title: "Playlists", 
+                    onPressedMinimize: () {},
+                    onPressedMaximize: () {}, 
+                    onPressedClose: () {}
+                  ),
+                  Container(
+                    height: 200,
+                    width: 300,
+                    color: Color(0xffc1c1c1),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        DefaultTextStyle(style: TextStyle(fontSize: 18), child: Text("OLA SO")),
+                        Text("OLA MUNDO")
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            /*childWhenDragging: Container(
+              height: 245,
+              width: 305,
+              color: Color(0xffc1c1c1),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 //crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,7 +118,39 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     height: 200,
                     width: 300,
-                    color: Colors.grey,
+                    color: Color(0xffc1c1c1),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("OLA SO"),
+                        Text("OLA MUNDO")
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),*/
+            childWhenDragging: (Container(color: Colors.transparent, height: 245, width: 305,)),
+            child: Container(
+              height: 245,
+              width: 305,
+              color: Color(0xffc1c1c1),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                //crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  WindowTitleBar(
+                    titleBarHeight: 35, 
+                    titleBarWidth: 297, 
+                    title: "User Informations", 
+                    onPressedMinimize: () {},
+                    onPressedMaximize: () {}, 
+                    onPressedClose: () {}
+                  ),
+                  Container(
+                    height: 200,
+                    width: 300,
+                    color: Color(0xffc1c1c1),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -108,15 +176,71 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
         ),
-      ),
+      ),*/
+          BaseWindow(
+            isVisible: windowsOpen[1], 
+            title: "Test Window",
+            windowWidth: 500, 
+            windowHeight: 600,
+            screenwidth: width, 
+            screenheight: height, 
+            offsetPosition: endpos2,
+          ),
           Visibility(visible: true, child: Container(),)
         ],
       ),
       bottomNavigationBar: BottomAppBar(
         height: 60,
-        color: Colors.green,
+        color: Color(0xFFbdbcbd),
         child: Row(
           children: [
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black,
+                    offset: Offset(2, 2),
+                  ),
+                  BoxShadow(
+                    color: Colors.black,
+                    offset: Offset(0, 2),
+                  ),
+                  BoxShadow(
+                    color: Colors.black,
+                    offset: Offset(2, 0),
+                  ),
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(-2, -2)
+                  ),
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(0, -2)
+                  ),
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(-2, 0)
+                  )
+                ]
+              ),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  backgroundColor: Color(0xFFbdbcbd),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
+                  elevation: 0.0,
+                  shadowColor: Colors.black,
+                  
+                ),
+                onPressed: () {},
+                child: Row(
+                  children: [
+                    Icon(Icons.computer, color: Colors.black,),
+                    Text("START", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
+                  ],
+                ),
+              ),
+            ),
             IconButton(
               onPressed: () {
                 setState(() {
