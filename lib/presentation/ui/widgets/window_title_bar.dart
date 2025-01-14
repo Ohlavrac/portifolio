@@ -26,7 +26,7 @@ class WindowTitleBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(title, style: TextStyle(color: Color(0xFFF3E9DC)),),
+            DefaultTextStyle(style: TextStyle(fontSize: 18, color: Color(0xFFF3E9DC)), child: Text(title)),
             Row(
               children: [
                 TitleBarButton(
