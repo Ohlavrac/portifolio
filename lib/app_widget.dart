@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/presentation/providers/open_windows_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'presentation/ui/screens/home_screen.dart';
 
@@ -7,11 +9,14 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: "/home",
-      routes: {
-        "/home": (context) => HomeScreen(),
-      },
+    return ChangeNotifierProvider(
+      create: (_) => OpenWindowsProvider(),
+      child: MaterialApp(
+        initialRoute: "/home",
+        routes: {
+          "/home": (context) => HomeScreen(),
+        },
+      ),
     );
   }
 }
