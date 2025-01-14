@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/presentation/providers/open_windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,11 +14,6 @@ class _HomeScreenState extends State<HomeScreen> {
   late Offset endpos = Offset.zero;
   late Offset endpos2 = Offset.zero;
 
-  List<bool> windowsOpen = [
-    false,
-    false
-  ];
-
   List<Offset> windowsPositions = [];
 
   @override
@@ -24,12 +21,14 @@ class _HomeScreenState extends State<HomeScreen> {
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
 
+    var provider = Provider.of<OpenWindowsProvider>(context);
+
     return Scaffold(
       backgroundColor: Color(0xFF4E6851),
       body: Stack(
         children: [
           Visibility(
-            visible: windowsOpen[0],
+            visible: provider.openWindows[0],
             child: Positioned(
               left: endpos.dx == 0 && endpos.dy == 0 ? width/2+100 : endpos.dx,
               top: endpos.dx == 0 && endpos.dy == 0 ? height/2 : endpos.dy,
@@ -176,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),*/
           BaseWindow(
-            isVisible: windowsOpen[1], 
+            windowIndex: 1,
             title: "Test Window",
             windowWidth: 500, 
             windowHeight: 600,
@@ -242,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               onPressed: () {
                 setState(() {
-                  windowsOpen[0] = windowsOpen[0] == true ? false : true;
+                  provider.openWindows[0] = provider.openWindows[0] == true ? false : true;
                 });
               },
               icon: Icon(Icons.computer), color: Colors.black,
@@ -251,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               onPressed: () {
                 setState(() {
-                  windowsOpen[1] = windowsOpen[1] == true ? false : true;
+                  provider.openWindows[1] = provider.openWindows[1] == true ? false : true;
                 });
               },
               icon: Icon(Icons.person, color: Colors.black,)
