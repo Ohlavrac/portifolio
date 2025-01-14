@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/presentation/providers/open_windows_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../window_title_bar.dart';
 
 class BaseWindow extends StatefulWidget {
-  final bool isVisible;
+  final int windowIndex;
   final String title;
   final double windowWidth;
   final double windowHeight;
@@ -15,7 +17,7 @@ class BaseWindow extends StatefulWidget {
 
   const BaseWindow({
     super.key, 
-    required this.isVisible, 
+    required this.windowIndex, 
     required this.title, 
     required this.windowWidth, 
     required this.windowHeight, 
@@ -30,12 +32,12 @@ class BaseWindow extends StatefulWidget {
 
 class _BaseWindowState extends State<BaseWindow> {
   Offset pos = Offset.zero;
-  late bool isNOTMinimizi = widget.isVisible;
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<OpenWindowsProvider>(context);
     return Visibility(
-      visible: widget.isVisible,
+      visible: provider.openWindows[widget.windowIndex],
       child: Positioned(
         left: pos.dx == 0 && pos.dy == 0 ? widget.screenwidth/2-50 : pos.dx,
         top: pos.dx == 0 && pos.dy == 0 ? widget.screenheight/2-50 : pos.dy,
@@ -56,7 +58,7 @@ class _BaseWindowState extends State<BaseWindow> {
                   title: widget.title, 
                   onPressedMinimize: () {
                     setState(() {
-                      isNOTMinimizi == true ? isNOTMinimizi = false : isNOTMinimizi = true;
+                      //isNOTMinimizi == true ? isNOTMinimizi = false : isNOTMinimizi = true;
                     });
                   },
                   onPressedMaximize: () {}, 
@@ -96,13 +98,13 @@ class _BaseWindowState extends State<BaseWindow> {
                   title: widget.title, 
                   onPressedMinimize: () {
                     setState(() {
-                      isNOTMinimizi == true ? isNOTMinimizi = false : isNOTMinimizi = true;
+                      
                     });
                   },
                   onPressedMaximize: () {}, 
                   onPressedClose: () {
                     setState(() {
-                      isNOTMinimizi = false;
+                      provider.closeWindow(widget.windowIndex);
                     });
                   }
                 ),
