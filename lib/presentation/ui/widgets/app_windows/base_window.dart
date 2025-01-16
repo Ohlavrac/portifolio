@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/open_windows_provider.dart';
+import 'package:portifolio/presentation/providers/screen_provider.dart';
 import 'package:portifolio/presentation/providers/windows_positions_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -10,8 +11,6 @@ class BaseWindow extends StatefulWidget {
   final String title;
   final double windowWidth;
   final double windowHeight;
-  final double screenwidth;
-  final double screenheight;
 
   //final Widget content;
 
@@ -21,8 +20,6 @@ class BaseWindow extends StatefulWidget {
     required this.title, 
     required this.windowWidth, 
     required this.windowHeight, 
-    required this.screenwidth,
-    required this.screenheight, 
   });
 
   @override
@@ -35,12 +32,15 @@ class _BaseWindowState extends State<BaseWindow> {
   Widget build(BuildContext context) {
     var provider = Provider.of<OpenWindowsProvider>(context);
     var positionProvider = Provider.of<WindowPositionProvider>(context);
+    var screenProvider = Provider.of<ScreenProvider>(context);
 
     return Visibility(
       visible: provider.openWindows[widget.windowIndex],
       child: Positioned(
-        left: positionProvider.windowPositions[widget.windowIndex].dx == 0 && positionProvider.windowPositions[widget.windowIndex].dy == 0 ? widget.screenwidth/2-50 : positionProvider.windowPositions[widget.windowIndex].dx,
-        top: positionProvider.windowPositions[widget.windowIndex].dx == 0 && positionProvider.windowPositions[widget.windowIndex].dy == 0 ? widget.screenheight/2-50 : positionProvider.windowPositions[widget.windowIndex].dy,
+        
+        left: positionProvider.windowPositions[widget.windowIndex].dx == 0 && positionProvider.windowPositions[widget.windowIndex].dy == 0 ? screenProvider.screenWidth/2-50 : positionProvider.windowPositions[widget.windowIndex].dx,
+        top: positionProvider.windowPositions[widget.windowIndex].dx == 0 && positionProvider.windowPositions[widget.windowIndex].dy == 0 ? screenProvider.screenHeight/2-50 : positionProvider.windowPositions[widget.windowIndex].dy,
+        
         child: Draggable(
           ignoringFeedbackPointer: false,
           feedbackOffset: Offset(100, 100),
@@ -58,7 +58,6 @@ class _BaseWindowState extends State<BaseWindow> {
                   title: widget.title, 
                   onPressedMinimize: () {
                     setState(() {
-                      //isNOTMinimizi == true ? isNOTMinimizi = false : isNOTMinimizi = true;
                     });
                   },
                   onPressedMaximize: () {}, 
@@ -103,6 +102,7 @@ class _BaseWindowState extends State<BaseWindow> {
                   },
                   onPressedMaximize: () {}, 
                   onPressedClose: () {
+                    
                     setState(() {
                       provider.closeWindow(widget.windowIndex);
                       positionProvider.resetWindowPosition(widget.windowIndex);
