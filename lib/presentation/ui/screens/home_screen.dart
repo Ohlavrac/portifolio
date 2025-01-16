@@ -14,8 +14,6 @@ class _HomeScreenState extends State<HomeScreen> {
   late Offset endpos = Offset.zero;
   late Offset endpos2 = Offset.zero;
 
-  List<Offset> windowsPositions = [];
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
@@ -181,7 +179,6 @@ class _HomeScreenState extends State<HomeScreen> {
             windowHeight: 600,
             screenwidth: width, 
             screenheight: height, 
-            offsetPosition: endpos2,
           ),
           Visibility(visible: true, child: Container(),)
         ],
