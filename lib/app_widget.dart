@@ -3,6 +3,7 @@ import 'package:portifolio/presentation/providers/open_windows_provider.dart';
 import 'package:portifolio/presentation/providers/windows_positions_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'presentation/providers/screen_provider.dart';
 import 'presentation/ui/screens/home_screen.dart';
 
 class AppWidget extends StatelessWidget {
@@ -13,7 +14,8 @@ class AppWidget extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => OpenWindowsProvider(),),
-        ChangeNotifierProvider(create: (_) => WindowPositionProvider())
+        ChangeNotifierProvider(create: (_) => WindowPositionProvider()),
+        ChangeNotifierProvider(create: (_) => ScreenProvider()),
       ],
       child: MaterialApp(
         initialRoute: "/home",
