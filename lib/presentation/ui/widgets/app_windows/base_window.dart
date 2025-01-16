@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/open_windows_provider.dart';
+import 'package:portifolio/presentation/providers/windows_positions_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../window_title_bar.dart';
@@ -11,7 +12,6 @@ class BaseWindow extends StatefulWidget {
   final double windowHeight;
   final double screenwidth;
   final double screenheight;
-  final Offset offsetPosition;
 
   //final Widget content;
 
@@ -23,7 +23,6 @@ class BaseWindow extends StatefulWidget {
     required this.windowHeight, 
     required this.screenwidth,
     required this.screenheight, 
-    required this.offsetPosition
   });
 
   @override
@@ -31,16 +30,17 @@ class BaseWindow extends StatefulWidget {
 }
 
 class _BaseWindowState extends State<BaseWindow> {
-  Offset pos = Offset.zero;
 
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<OpenWindowsProvider>(context);
+    var positionProvider = Provider.of<WindowPositionProvider>(context);
+
     return Visibility(
       visible: provider.openWindows[widget.windowIndex],
       child: Positioned(
-        left: pos.dx == 0 && pos.dy == 0 ? widget.screenwidth/2-50 : pos.dx,
-        top: pos.dx == 0 && pos.dy == 0 ? widget.screenheight/2-50 : pos.dy,
+        left: positionProvider.windowPositions[widget.windowIndex].dx == 0 && positionProvider.windowPositions[widget.windowIndex].dy == 0 ? widget.screenwidth/2-50 : positionProvider.windowPositions[widget.windowIndex].dx,
+        top: positionProvider.windowPositions[widget.windowIndex].dx == 0 && positionProvider.windowPositions[widget.windowIndex].dy == 0 ? widget.screenheight/2-50 : positionProvider.windowPositions[widget.windowIndex].dy,
         child: Draggable(
           ignoringFeedbackPointer: false,
           feedbackOffset: Offset(100, 100),
@@ -76,12 +76,12 @@ class _BaseWindowState extends State<BaseWindow> {
           childWhenDragging: (Container(color: Colors.transparent, height: widget.windowHeight, width: widget.windowWidth,)),
           onDragUpdate: (details) {
             setState(() {
-              pos = details.localPosition;
+              positionProvider.updateWindowPostion(widget.windowIndex, details.localPosition.dx, details.localPosition.dy);
             });
           },
           onDragEnd: (details) {
             setState(() {
-              pos = details.offset;
+              positionProvider.updateWindowPostion(widget.windowIndex, details.offset.dx, details.offset.dy);
             });
           },
           child: Container(
@@ -98,13 +98,14 @@ class _BaseWindowState extends State<BaseWindow> {
                   title: widget.title, 
                   onPressedMinimize: () {
                     setState(() {
-                      
+                      provider.closeWindow(widget.windowIndex);
                     });
                   },
                   onPressedMaximize: () {}, 
                   onPressedClose: () {
                     setState(() {
                       provider.closeWindow(widget.windowIndex);
+                      positionProvider.resetWindowPosition(widget.windowIndex);
                     });
                   }
                 ),
