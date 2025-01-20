@@ -48,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   windowsProvider.openWindow(1);
+                  windowsProvider.windowReposition(1);
                 });
               },
               icon: Icon(Icons.computer), color: Colors.black,
@@ -57,9 +58,19 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   windowsProvider.openWindow(2);
+                  windowsProvider.windowReposition(2);
                 });
               },
               icon: Icon(Icons.person, color: Colors.black,)
+            ),
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  windowsProvider.openWindow(3);
+                  windowsProvider.windowReposition(3);
+                });
+              },
+              icon: Icon(Icons.ac_unit, color: Colors.black,)
             )
           ],
         ),
