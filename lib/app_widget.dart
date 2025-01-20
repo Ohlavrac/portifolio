@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/open_windows_provider.dart';
 import 'package:portifolio/presentation/providers/windows_positions_provider.dart';
+import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'presentation/providers/screen_provider.dart';
@@ -16,6 +17,7 @@ class AppWidget extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => OpenWindowsProvider(),),
         ChangeNotifierProvider(create: (_) => WindowPositionProvider()),
         ChangeNotifierProvider(create: (_) => ScreenProvider()),
+        ChangeNotifierProvider(create: (context) => WindowsProvider())
       ],
       child: MaterialApp(
         initialRoute: "/home",

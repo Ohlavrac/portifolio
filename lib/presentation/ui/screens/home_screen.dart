@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/open_windows_provider.dart';
 import 'package:portifolio/presentation/providers/screen_provider.dart';
+import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
 import 'package:portifolio/presentation/ui/widgets/start_button.dart';
 import 'package:provider/provider.dart';
+
+import '../../../domain/models/window_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     var provider = Provider.of<OpenWindowsProvider>(context);
     var screenProvider = Provider.of<ScreenProvider>(context);
+    var windowsProvider = Provider.of<WindowsProvider>(context);
 
     screenProvider.screenHeight = height;
     screenProvider.screenWidth = width;
@@ -30,18 +34,11 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xFF4E6851),
       body: Stack(
         children: [
-          BaseWindow(
-            windowIndex: 0,
-            title: "Test Window 2",
-            windowWidth: 300, 
-            windowHeight: 600,
-          ),
-          BaseWindow(
-            windowIndex: 1,
-            title: "Test Window 1",
-            windowWidth: 500, 
-            windowHeight: 600,
-          ),
+          BaseWindow(window: windowsProvider.windowsList[0]),
+          BaseWindow(window: windowsProvider.windowsList[1]),
+          BaseWindow(window: windowsProvider.windowsList[2]),
+          BaseWindow(window: windowsProvider.windowsList[3]),
+          BaseWindow(window: windowsProvider.windowsList[4]),
           Visibility(visible: true, child: Container(),)
         ],
       ),
@@ -54,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               onPressed: () {
                 setState(() {
-                  provider.openWindows[0] = provider.openWindows[0] == true ? false : true;
+                  windowsProvider.openWindow(1);
                 });
               },
               icon: Icon(Icons.computer), color: Colors.black,
@@ -63,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               onPressed: () {
                 setState(() {
-                  provider.openWindows[1] = provider.openWindows[1] == true ? false : true;
+                  windowsProvider.openWindow(2);
                 });
               },
               icon: Icon(Icons.person, color: Colors.black,)
