@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/domain/models/window_model.dart';
-import 'package:portifolio/presentation/providers/open_windows_provider.dart';
 import 'package:portifolio/presentation/providers/screen_provider.dart';
 import 'package:portifolio/presentation/providers/windows_positions_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
@@ -26,7 +25,6 @@ class _BaseWindowState extends State<BaseWindow> {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<OpenWindowsProvider>(context);
     var positionProvider = Provider.of<WindowPositionProvider>(context);
     var screenProvider = Provider.of<ScreenProvider>(context);
     var windowsProvider = Provider.of<WindowsProvider>(context);

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portifolio/presentation/providers/open_windows_provider.dart';
 import 'package:portifolio/presentation/providers/windows_positions_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +13,6 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => OpenWindowsProvider(),),
         ChangeNotifierProvider(create: (_) => WindowPositionProvider()),
         ChangeNotifierProvider(create: (_) => ScreenProvider()),
         ChangeNotifierProvider(create: (context) => WindowsProvider())

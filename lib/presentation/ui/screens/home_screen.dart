@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portifolio/presentation/providers/open_windows_provider.dart';
 import 'package:portifolio/presentation/providers/screen_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
 import 'package:portifolio/presentation/ui/widgets/start_button.dart';
 import 'package:provider/provider.dart';
-
-import '../../../domain/models/window_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,7 +20,6 @@ class _HomeScreenState extends State<HomeScreen> {
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
 
-    var provider = Provider.of<OpenWindowsProvider>(context);
     var screenProvider = Provider.of<ScreenProvider>(context);
     var windowsProvider = Provider.of<WindowsProvider>(context);
 
