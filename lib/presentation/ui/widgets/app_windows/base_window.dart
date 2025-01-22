@@ -10,11 +10,12 @@ import '../window_title_bar.dart';
 class BaseWindow extends StatefulWidget {
   final WindowModel window;
 
-  //final Widget content;
+  final Widget content;
 
   const BaseWindow({
     super.key, 
-    required this.window 
+    required this.window,
+    required this.content
   });
 
   @override
@@ -62,7 +63,7 @@ class _BaseWindowState extends State<BaseWindow> {
                   height: widget.window.windowHeight-45,
                   width: widget.window.windowWidth-5,
                   color: Color(0xffc1c1c1),
-                  child: Container()
+                  child: widget.content
                 )
               ],
             ),
@@ -107,7 +108,7 @@ class _BaseWindowState extends State<BaseWindow> {
                   height: widget.window.windowHeight-45,
                   width: widget.window.windowWidth-5,
                   color: Color(0xffc1c1c1),
-                  child: Container(),
+                  child: widget.content
                 )
               ],
             ),
