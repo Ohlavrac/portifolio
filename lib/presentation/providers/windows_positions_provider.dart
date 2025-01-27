@@ -10,7 +10,6 @@ class WindowPositionProvider extends ChangeNotifier {
     Offset.zero,
   ];
 
-
   void updateWindowPostion(int index, double dx, double dy) {
     windowPositions[index] = Offset(dx, dy);
     notifyListeners();

@@ -33,9 +33,15 @@ class _BaseWindowState extends State<BaseWindow> {
     return Visibility(
       visible: widget.window.isOpen,
       child: Positioned(
+
+        //TODO: MAKE A FUNC TO THIS
+        left: positionProvider.windowPositions[widget.window.windowID].dx == 0 && positionProvider.windowPositions[widget.window.windowID].dy == 0 ? 
+          widget.window.windowID == 2 ? screenProvider.screenWidth/1-widget.window.windowWidth-10 : screenProvider.screenWidth/2-100 : 
+          positionProvider.windowPositions[widget.window.windowID].dx,
         
-        left: positionProvider.windowPositions[widget.window.windowID].dx == 0 && positionProvider.windowPositions[widget.window.windowID].dy == 0 ? screenProvider.screenWidth/2-50 : positionProvider.windowPositions[widget.window.windowID].dx,
-        top: positionProvider.windowPositions[widget.window.windowID].dx == 0 && positionProvider.windowPositions[widget.window.windowID].dy == 0 ? screenProvider.screenHeight/2-50 : positionProvider.windowPositions[widget.window.windowID].dy,
+        top: positionProvider.windowPositions[widget.window.windowID].dx == 0 && positionProvider.windowPositions[widget.window.windowID].dy == 0 ? 
+          widget.window.windowID == 2 ? screenProvider.screenHeight/widget.window.windowHeight+10 : screenProvider.screenHeight/2-100 :
+          positionProvider.windowPositions[widget.window.windowID].dy,
         
         child: Draggable(
           ignoringFeedbackPointer: false,
