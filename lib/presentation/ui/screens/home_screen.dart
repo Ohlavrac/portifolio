@@ -24,6 +24,13 @@ class _HomeScreenState extends State<HomeScreen> {
     Text("Ola Mundo V"),
   ];
 
+  List<Widget> iconsDesktop = [
+    Image.asset("./assets/icons/my-computer-icon.png",),
+    Image.asset("./assets/icons/my-network-icon.png"),
+    Image.asset("./assets/icons/my-computer-icon-2.png"),
+    Icon(Icons.browse_gallery)
+  ];
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
@@ -39,6 +46,30 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xFF4E6851),
       body: Stack(
         children: [
+          GridView.builder(
+            itemCount: iconsDesktop.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 20, crossAxisSpacing: 5, mainAxisSpacing: 5),
+            itemBuilder: (context, index) {
+              return ElevatedButton(
+                onPressed: () {
+              
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.all(1),
+                  backgroundColor: Colors.yellow,
+                  shadowColor: Colors.transparent,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0))
+                ),
+                child: Column(
+                  children: [
+                    iconsDesktop[index],
+                    Text("my-computer", style: TextStyle(color: Colors.black),)
+                  ],
+                ),
+              );
+            },
+          ),
           BaseWindow(window: windowsProvider.windowsList[0], content: contents[windowsProvider.windowsList[0].windowID-1]),
           BaseWindow(window: windowsProvider.windowsList[1], content: contents[windowsProvider.windowsList[1].windowID-1]),
           BaseWindow(window: windowsProvider.windowsList[2], content: contents[windowsProvider.windowsList[2].windowID-1]),
