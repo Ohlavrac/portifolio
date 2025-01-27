@@ -18,6 +18,7 @@ class AppWidget extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => WindowsProvider())
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         initialRoute: "/home",
         routes: {
           "/home": (context) => HomeScreen(),
