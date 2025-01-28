@@ -25,9 +25,9 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   List<Widget> iconsDesktop = [
-    Image.asset("./assets/icons/my-computer-icon.png",),
-    Image.asset("./assets/icons/my-network-icon.png"),
-    Image.asset("./assets/icons/my-computer-icon-2.png"),
+    //Image.asset("./assets/icons/my-computer-icon.png", scale: 6.0,),
+    Image.asset("./assets/icons/my-computer-icon-2.png", scale: 4.0),
+    Image.asset("./assets/icons/my-network-icon.png", scale: 5.0),
     Icon(Icons.browse_gallery)
   ];
 
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           GridView.builder(
             itemCount: iconsDesktop.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 20, crossAxisSpacing: 5, mainAxisSpacing: 5),
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 100, crossAxisSpacing: 6, mainAxisSpacing: 5),
             itemBuilder: (context, index) {
               return ElevatedButton(
                 onPressed: () {
@@ -56,12 +56,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.all(1),
-                  backgroundColor: Colors.yellow,
+                  backgroundColor: Colors.transparent,
                   shadowColor: Colors.transparent,
                   elevation: 0,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0))
                 ),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     iconsDesktop[index],
                     Text("my-computer", style: TextStyle(color: Colors.black),)
