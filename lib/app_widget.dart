@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/presentation/providers/email_provider.dart';
 import 'package:portifolio/presentation/providers/windows_positions_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:provider/provider.dart';
@@ -15,13 +16,14 @@ class AppWidget extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => WindowPositionProvider()),
         ChangeNotifierProvider(create: (context) => ScreenProvider()),
-        ChangeNotifierProvider(create: (context) => WindowsProvider())
+        ChangeNotifierProvider(create: (context) => WindowsProvider()),
+        ChangeNotifierProvider(create: (context) => EmailProvider())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: "/home",
+        initialRoute: "/",
         routes: {
-          "/home": (context) => HomeScreen(),
+          "/": (context) => HomeScreen(),
         },
       ),
     );
