@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/screen_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
+import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/user_info.dart';
 import 'package:portifolio/presentation/ui/widgets/desktop_icon.dart';
 import 'package:portifolio/presentation/ui/widgets/start_button.dart';
@@ -23,29 +24,17 @@ class _HomeScreenState extends State<HomeScreen> {
     Text("Ola Mundo I"),
     UserInfo(),
     Text("Ola Mundo III"),
-    Text("Ola Mundo IV"),
+    //Text("OLA MUNDO MANO"),
+    SendEmailContent(),
     Text("Ola Mundo V"),
   ];
 
-  List<Widget> iconsDesktop = [
-    //Image.asset("./assets/icons/my-computer-icon.png", scale: 6.0,),
-    Image.asset("./assets/icons/my-computer-icon.png", height: 60,),
-    Image.asset("./assets/icons/my-network-icon-2.png", height: 60,),
-    Image.asset("./assets/icons/my-network-icon-2.png", height: 60,),
-    Image.asset("./assets/icons/my-network-icon-2.png", height: 60,),
-    Image.asset("./assets/icons/my-network-icon-2.png", height: 60,),
-    Image.asset("./assets/icons/my-network-icon-2.png", height: 60,),
-    Image.asset("./assets/icons/my-network-icon-2.png", height: 60,),
-    Image.asset("./assets/icons/my-network-icon-2.png", height: 60,),
-
-  ];
-
   List<IconModel> icons = [
-    IconModel(id: 1, windowId: 2, imageUrl: "./assets/icons/my-computer-icon-3.png", title: "my computer"),
-    IconModel(id: 2, windowId: 1, imageUrl: "./assets/icons/my-network-icon-2.png", title: "my network"),
-    IconModel(id: 3, windowId: 4, imageUrl: "./assets/icons/email-icon.png", title: "my email"),
+    IconModel(id: 1, windowId: 2, imageUrl: "./assets/icons/my-computer-icon-3.png", title: "My Computer"),
+    IconModel(id: 2, windowId: 1, imageUrl: "./assets/icons/my-network-icon-2.png", title: "My Network"),
+    IconModel(id: 3, windowId: 4, imageUrl: "./assets/icons/email-icon.png", title: "Send Email"),
     IconModel(id: 4, windowId: 3, imageUrl: "./assets/icons/msn-icon.png", title: "MSN"),
-    IconModel(id: 5, windowId: 5, imageUrl: "./assets/icons/song-icon.png", title: "playlists"),
+    IconModel(id: 5, windowId: 5, imageUrl: "./assets/icons/song-icon.png", title: "Spotify"),
   ];
 
   @override
@@ -58,8 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
     screenProvider.screenHeight = height;
     screenProvider.screenWidth = width;
-
-    print("Altura: ${height} | icons*70 ${iconsDesktop.length * 100 + 70}");
 
     return Scaffold(
       backgroundColor: Color(0xFF4E6851),
@@ -74,7 +61,6 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) {
               return Wrap(
                 direction: Axis.horizontal,
-                //verticalDirection: VerticalDirection.up,
                 children: [
                   DesktopIcon(
                     imageUrl: icons[index].imageUrl,

@@ -27,9 +27,9 @@ class WindowsProvider extends ChangeNotifier {
     ),
     WindowModel(
       windowID: 4,
-      title: "Test Window IV",
+      title: "Send Email",
       isOpen: false,
-      windowWidth: 300, 
+      windowWidth: 400, 
       windowHeight: 500,
     ),
     WindowModel(
