@@ -103,11 +103,6 @@ class _BaseWindowState extends State<BaseWindow> {
             ),
           ),
           childWhenDragging: (Container(color: Colors.transparent, height: widget.window.windowHeight, width: widget.window.windowWidth,)),
-          onDragUpdate: (details) {
-            setState(() {
-              positionProvider.updateWindowPostion(widget.window.windowID, details.localPosition.dx, details.localPosition.dy);
-            });
-          },
           onDragEnd: (details) {
             setState(() {
               positionProvider.updateWindowPostion(widget.window.windowID, details.offset.dx, details.offset.dy);
