@@ -49,7 +49,35 @@ class _BaseWindowState extends State<BaseWindow> {
           feedback: Container(
             height: widget.window.windowHeight,
             width: widget.window.windowWidth,
-            color: Color(0xffc1c1c1),
+            decoration: BoxDecoration(
+              color: Color(0xffc1c1c1),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black,
+                  offset: Offset(2, 2),
+                ),
+                BoxShadow(
+                  color: Colors.black,
+                  offset: Offset(0, 2),
+                ),
+                BoxShadow(
+                  color: Colors.black,
+                  offset: Offset(2, 0),
+                ),
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-2, -2)
+                ),
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(0, -2)
+                ),
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-2, 0)
+                )
+              ],
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               //crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,7 +117,35 @@ class _BaseWindowState extends State<BaseWindow> {
           child: Container(
             height: widget.window.windowHeight,
             width: widget.window.windowWidth,
-            color: Color(0xffc1c1c1),
+            decoration: BoxDecoration(
+              color: Color(0xffc1c1c1),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black,
+                  offset: Offset(2, 2),
+                ),
+                BoxShadow(
+                  color: Colors.black,
+                  offset: Offset(0, 2),
+                ),
+                BoxShadow(
+                  color: Colors.black,
+                  offset: Offset(2, 0),
+                ),
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-2, -2)
+                ),
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(0, -2)
+                ),
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-2, 0)
+                )
+              ],
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               //crossAxisAlignment: CrossAxisAlignment.start,
