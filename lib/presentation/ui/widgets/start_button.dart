@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class StartButton extends StatelessWidget {
-  const StartButton({super.key});
+  final String title;
+  final Widget? icon;
+  final VoidCallback onPressed;
+  final double? height;
+  final double? width;
+
+  const StartButton({super.key, required this.title, this.icon, required this.onPressed, this.height, this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +49,12 @@ class StartButton extends StatelessWidget {
           shadowColor: Colors.black,
           
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(Icons.computer, color: Colors.black,),
-            Text("START", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
+            icon == null ? Container() : icon!,
+            Text(title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
           ],
         ),
       ),
