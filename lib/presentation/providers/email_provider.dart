@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 
 class EmailProvider extends ChangeNotifier {
-  final String message = "";
-  final String email = "";
+  String message = "";
+  String email = "";
 
-  void setEmail(String email) {
-    email = email;
+  void setEmail(String value) {
+    email = value;
     notifyListeners();
   }
 
-  void setMessage(String message) {
-    message = message;
+  void setMessage(String value) {
+    message = value;
     notifyListeners();
+  }
+
+  void clearFields() {
+    message = "";
+    email = "";
   }
 }

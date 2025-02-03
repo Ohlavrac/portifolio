@@ -30,6 +30,7 @@ class _SendEmailContentState extends State<SendEmailContent> {
           ),
           Material(
             child: TextFormField(
+              initialValue: emailProvider.message,
               autofocus: false,
               decoration: InputDecoration(
                 border: InputBorder.none,
@@ -37,7 +38,7 @@ class _SendEmailContentState extends State<SendEmailContent> {
               ),
               maxLines: 10,
               onChanged: (value) {
-                message = value;
+                emailProvider.setMessage(value);
               },
               onFieldSubmitted: (value) {},
               
@@ -49,9 +50,11 @@ class _SendEmailContentState extends State<SendEmailContent> {
           ),
           Material(
             child: TextFormField(
+              initialValue: emailProvider.email,
               autofocus: false,
               keyboardType: TextInputType.emailAddress,
               onChanged: (value) {
+                emailProvider.setEmail(value);
               },
               onFieldSubmitted: (value) {},
             ),
@@ -61,6 +64,9 @@ class _SendEmailContentState extends State<SendEmailContent> {
               ElevatedButton(
                 onPressed: () {
                   print("${emailProvider.email} | ${emailProvider.message}");
+                  setState(() {
+                    emailProvider.clearFields();
+                  });    
                 }, 
                 child: Text("SEND EMAIL")
               )
