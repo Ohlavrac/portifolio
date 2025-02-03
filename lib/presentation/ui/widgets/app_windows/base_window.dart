@@ -87,8 +87,7 @@ class _BaseWindowState extends State<BaseWindow> {
                   titleBarWidth: widget.window.windowWidth-8, 
                   title: widget.window.title, 
                   onPressedMinimize: () {
-                    setState(() {
-                    });
+
                   },
                   onPressedMaximize: () {}, 
                   onPressedClose: () {}
@@ -104,10 +103,8 @@ class _BaseWindowState extends State<BaseWindow> {
           ),
           childWhenDragging: (Container(color: Colors.transparent, height: widget.window.windowHeight, width: widget.window.windowWidth,)),
           onDragEnd: (details) {
-            setState(() {
-              positionProvider.updateWindowPostion(widget.window.windowID, details.offset.dx, details.offset.dy);
-              windowsProvider.windowReposition(widget.window.windowID);
-            });
+            positionProvider.updateWindowPostion(widget.window.windowID, details.offset.dx, details.offset.dy);
+            windowsProvider.windowReposition(widget.window.windowID);
           },
           child: Container(
             height: widget.window.windowHeight,
