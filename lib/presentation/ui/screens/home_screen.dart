@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Color(0xFFbdbcbd),
         child: Row(
           children: [
-            StartButton(),
+            StartButton(title: "Start", icon: Icon(Icons.computer, color: Colors.black,), onPressed: () {},),
             IconButton(
               onPressed: () {
                 setState(() {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/email_provider.dart';
+import 'package:portifolio/presentation/ui/widgets/start_button.dart';
+import 'package:portifolio/presentation/ui/widgets/text_input.dart';
 import 'package:provider/provider.dart';
 
 class SendEmailContent extends StatefulWidget {
@@ -28,40 +30,31 @@ class _SendEmailContentState extends State<SendEmailContent> {
             padding: const EdgeInsets.only(top: 15, bottom: 5),
             child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold), child: Text("Your Message:")),
           ),
-          Material(
-            child: TextFormField(
-              initialValue: emailProvider.message,
-              autofocus: false,
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                focusedBorder: InputBorder.none,
-              ),
-              maxLines: 10,
-              onChanged: (value) {
-                emailProvider.setMessage(value);
-              },
-              onFieldSubmitted: (value) {},
-              
-            ),
+          TextInput(
+            initialValue: emailProvider.message,
+            maxLines: 10,
+            onChanged: (value) {
+              emailProvider.setMessage(value);
+            },
+            onSubmited: (value) {},
           ),
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 5),
             child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold), child: Text("Your Email:")),
           ),
-          Material(
-            child: TextFormField(
-              initialValue: emailProvider.email,
-              autofocus: false,
-              keyboardType: TextInputType.emailAddress,
-              onChanged: (value) {
-                emailProvider.setEmail(value);
-              },
-              onFieldSubmitted: (value) {},
-            ),
+          TextInput(
+            initialValue: emailProvider.email,
+            maxLines: 1,
+            onChanged: (value) {
+              emailProvider.setEmail(value);
+            },
+            onSubmited: (value) {},
           ),
+          SizedBox(height: 40,),
           Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              ElevatedButton(
+              /*ElevatedButton(
                 onPressed: () {
                   print("${emailProvider.email} | ${emailProvider.message}");
                   setState(() {
@@ -69,7 +62,8 @@ class _SendEmailContentState extends State<SendEmailContent> {
                   });    
                 }, 
                 child: Text("SEND EMAIL")
-              )
+              )*/
+              StartButton(title: "Send", onPressed: () {},)
             ],
           )
         ],
