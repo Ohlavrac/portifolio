@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/screen_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
@@ -19,6 +21,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late Offset endpos = Offset.zero;
+
+  DateTime date = DateTime.now();
 
   List<Widget> contents = [
     Text("Ola Mundo I"),
@@ -47,6 +51,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
     screenProvider.screenHeight = height;
     screenProvider.screenWidth = width;
+
+    final Locale locate = Localizations.localeOf(context);
 
     return Scaffold(
       backgroundColor: Color(0xFF4E6851),
@@ -89,36 +95,26 @@ class _HomeScreenState extends State<HomeScreen> {
         height: 60,
         color: Color(0xFFbdbcbd),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             StartButton(title: "Start", icon: Icon(Icons.computer, color: Colors.black,), onPressed: () {},),
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  windowsProvider.openWindow(1);
-                  windowsProvider.windowReposition(1);
-                });
-              },
-              icon: Icon(Icons.computer), color: Colors.black,
-              
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.all(1),
+                    backgroundColor: Colors.transparent,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
+                    elevation: 0.0,
+                    shadowColor: Colors.transparent,
+                  ),
+                  child: Text(locate.toString()!='pt_BR' ? "ENG" : "PT-BR", style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold),)
+                )
+              ],
             ),
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  windowsProvider.openWindow(2);
-                  windowsProvider.windowReposition(2);
-                });
-              },
-              icon: Icon(Icons.person, color: Colors.black,)
-            ),
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  windowsProvider.openWindow(3);
-                  windowsProvider.windowReposition(3);
-                });
-              },
-              icon: Icon(Icons.ac_unit, color: Colors.black,)
-            )
           ],
         ),
       ),
