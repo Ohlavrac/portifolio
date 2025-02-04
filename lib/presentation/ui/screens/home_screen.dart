@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:portifolio/presentation/providers/language_provider.dart';
 import 'package:portifolio/presentation/providers/screen_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
@@ -48,11 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
     var screenProvider = Provider.of<ScreenProvider>(context);
     var windowsProvider = Provider.of<WindowsProvider>(context);
+    var languageProvider = Provider.of<LanguageProvider>(context);
 
     screenProvider.screenHeight = height;
     screenProvider.screenWidth = width;
-
-    final Locale locate = Localizations.localeOf(context);
 
     return Scaffold(
       backgroundColor: Color(0xFF4E6851),
@@ -102,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                
+                    languageProvider.lang == "ENG" ? languageProvider.setLangPTBR() : languageProvider.setLangENG();
                   },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(1),
@@ -111,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     elevation: 0.0,
                     shadowColor: Colors.transparent,
                   ),
-                  child: Text(locate.toString()!='pt_BR' ? "ENG" : "PT-BR", style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold),)
+                  child: Text(languageProvider.lang , style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold),)
                 )
               ],
             ),

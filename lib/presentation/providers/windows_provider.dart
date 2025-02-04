@@ -6,28 +6,28 @@ class WindowsProvider extends ChangeNotifier {
   List<WindowModel> windowsList = [
     WindowModel(
       windowID: 1,
-      title: "Test Window I",
+      title: "my_network_title",
       isOpen: false,
       windowWidth: 300, 
       windowHeight: 300,
     ),
     WindowModel(
       windowID: 2,
-      title: "Informations",
+      title: "informations_title",
       isOpen: true,
       windowWidth: 400, 
       windowHeight: 600,
     ),
     WindowModel(
       windowID: 3,
-      title: "Test Window III",
+      title: "social_title",
       isOpen: false,
       windowWidth: 400, 
       windowHeight: 600,
     ),
     WindowModel(
       windowID: 4,
-      title: "Send Email",
+      title: "send_email_title",
       isOpen: false,
       windowWidth: 400, 
       windowHeight: 500,
