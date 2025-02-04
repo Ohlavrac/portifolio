@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/presentation/providers/language_provider.dart';
+import 'package:portifolio/utils/languages.dart';
+import 'package:provider/provider.dart';
 
 import 'title_bar_button.dart';
 
@@ -16,6 +19,9 @@ class WindowTitleBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    var languageProvider = Provider.of<LanguageProvider>(context);
+
     return Container(
       height: titleBarHeight,
       width: titleBarWidth,
@@ -26,7 +32,7 @@ class WindowTitleBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            DefaultTextStyle(style: TextStyle(fontSize: 18, color: Color(0xFFF3E9DC)), child: Text(title)),
+            DefaultTextStyle(style: TextStyle(fontSize: 18, color: Color(0xFFF3E9DC)), child: Text(getValueByLangAndKey(languageProvider.lang, title))),
             Row(
               children: [
                 TitleBarButton(
