@@ -1,0 +1,27 @@
+{
+    "my_computer_window": {
+        "informations_title": "Informações",
+        "name": "Nome",
+        "software_engineer": "Engenheiro de Software",
+        "education": "Educação",
+        "graduation_type": "Bacharel",
+        "graduation": "Ciência da Computação",
+        "college": "Universidade Estadual do Piaui - UESPI",
+        "college_period": "Set 2019 - Dez 2024",
+        "about_me": "Sobre Mim",
+        "about_me_text": "Olá, meu nome é João Victor, tenho 23 anos e sou desenvolvedor full-stack formado em Ciência da Computação. Sempre fui fascinado pelo mundo da tecnologia, sempre buscando entender como os jogos que eu jogava funcionavam, o que foi minha principal motivação para começar a programar. Atualmente trabalho como desenvolvedor full-stack e estou sempre em busca de um novo desafio ou tarefa para colocar minhas habilidades em prática e aprender algo novo.",
+        "programming_langs": "Linguagens",
+        "programming_langs_content": "Dart | Java | Javascript | Python | C | Lua | Typescript",
+        "tecnologies": "Tecnologias",
+        "tecnologies_content": "Flutter | Spring Boot | Express | Firebase | Prisma | MySQL | MongoDB | PostgreSQL",
+        "languages": "Idiomas",
+        "languages_content": "Portugues (Fluente) | Ingles (Intermediario)"
+    },
+
+    "send_email_window": {
+        "send_email_title": "Enviar Email",
+        "your_message": "Sua Mensagem",
+        "your_email": "Seu Email",
+        "send": "Enviar"
+    }
+}
