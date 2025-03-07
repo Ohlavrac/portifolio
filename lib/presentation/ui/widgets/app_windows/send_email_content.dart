@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/email_provider.dart';
+import 'package:portifolio/presentation/providers/language_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/start_button.dart';
 import 'package:portifolio/presentation/ui/widgets/text_input.dart';
+import 'package:portifolio/utils/languages.dart';
 import 'package:provider/provider.dart';
 
 class SendEmailContent extends StatefulWidget {
@@ -17,9 +19,7 @@ class _SendEmailContentState extends State<SendEmailContent> {
   Widget build(BuildContext context) {
 
     var emailProvider = Provider.of<EmailProvider>(context);
-
-    String email = "";
-    String message = "";
+    var languageProvider = Provider.of<LanguageProvider>(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -28,7 +28,7 @@ class _SendEmailContentState extends State<SendEmailContent> {
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 5),
-            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold), child: Text("Your Message:")),
+            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold), child: Text("${getValueByLangAndKey(languageProvider.lang, "your_message")}:")),
           ),
           TextInput(
             initialValue: emailProvider.message,
@@ -40,7 +40,7 @@ class _SendEmailContentState extends State<SendEmailContent> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 5),
-            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold), child: Text("Your Email:")),
+            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold), child: Text("${getValueByLangAndKey(languageProvider.lang, "your_email")}:")),
           ),
           TextInput(
             initialValue: emailProvider.email,
