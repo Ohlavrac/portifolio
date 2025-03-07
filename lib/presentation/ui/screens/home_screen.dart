@@ -4,6 +4,7 @@ import 'package:portifolio/presentation/providers/screen_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_content.dart';
+import 'package:portifolio/presentation/ui/widgets/app_windows/spotify_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/user_info.dart';
 import 'package:portifolio/presentation/ui/widgets/desktop_icon.dart';
 import 'package:portifolio/presentation/ui/widgets/start_button.dart';
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Text("Ola Mundo III"),
     //Text("OLA MUNDO MANO"),
     SendEmailContent(),
-    Text("Ola Mundo V"),
+    SpotifyContent()
   ];
 
   List<IconModel> icons = [
