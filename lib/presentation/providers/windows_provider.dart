@@ -34,10 +34,10 @@ class WindowsProvider extends ChangeNotifier {
     ),
     WindowModel(
       windowID: 5,
-      title: "Test Window V",
+      title: "spotify_title",
       isOpen: false,
       windowWidth: 500, 
-      windowHeight: 600,
+      windowHeight: 250,
     ),
   ];
 
