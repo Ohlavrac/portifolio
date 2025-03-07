@@ -1,8 +1,9 @@
 Map<String, dynamic> eng = {
   "informations_title": "Informations",
   "send_email_title": "Send Email",
-  "social_title": "Social Networks",
+  "social_title": "Social Medias",
   "my_network_title": "My Network",
+  "spotify_title": "Spotify",
   "name": "Name",
   "software_engineer": "Software Enginner",
   "education": "Education",
@@ -17,7 +18,9 @@ Map<String, dynamic> eng = {
   "tecnologies": "Tecnologies",
   "tecnologies_content": "Flutter | Spring Boot | Express | Firebase | Prisma | MySQL | MongoDB | PostgreSQL",
   "languages": "Languages",
-  "languages_content": "Portuguese (Fluent) | English (Advanced Intermediate)"
+  "languages_content": "Portuguese (Fluent) | English (Advanced Intermediate)",
+  "your_email": "Your Email",
+  "your_message": "Your Message"
 };
 
 Map<String, dynamic> ptbr = {
@@ -25,6 +28,7 @@ Map<String, dynamic> ptbr = {
   "send_email_title": "Enviar Email",
   "social_title": "Redes Sociais",
   "my_network_title": "Minha Rede",
+  "spotify_title": "Spotify",
   "name": "Nome",
   "software_engineer": "Engenheiro de\nSoftware",
   "education": "Educação",
@@ -39,7 +43,9 @@ Map<String, dynamic> ptbr = {
   "tecnologies": "Tecnologias",
   "tecnologies_content": "Flutter | Spring Boot | Express | Firebase | Prisma | MySQL | MongoDB | PostgreSQL",
   "languages": "Idiomas",
-  "languages_content": "Portugues (Fluente) | Ingles (Intermediario)"
+  "languages_content": "Portugues (Fluente) | Ingles (Intermediario)",
+  "your_email": "Seu Email",
+  "your_message": "Sua Mensagem"
 };
 
 String getValueByLangAndKey(String lang, String key) {
