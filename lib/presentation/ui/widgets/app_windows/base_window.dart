@@ -85,7 +85,10 @@ class _BaseWindowState extends State<BaseWindow> {
                 WindowTitleBar(
                   titleBarHeight: 35, 
                   titleBarWidth: widget.window.windowWidth-8, 
-                  title: widget.window.title, 
+                  title: widget.window.title,
+                  hasCloseButton: widget.window.hasCloseButton,
+                  hasMaximizeButton: widget.window.hasMaximizeButton,
+                  hasMinimizeButton: widget.window.hasMinimizeButton, 
                   onPressedMinimize: () {
 
                   },
@@ -145,11 +148,16 @@ class _BaseWindowState extends State<BaseWindow> {
                 WindowTitleBar(
                   titleBarHeight: 35, 
                   titleBarWidth: widget.window.windowWidth-8, 
-                  title: widget.window.title, 
+                  title: widget.window.title,
+                  hasCloseButton: widget.window.hasCloseButton,
+                  hasMaximizeButton: widget.window.hasMaximizeButton,
+                  hasMinimizeButton: widget.window.hasMinimizeButton,
                   onPressedMinimize: () {
                     windowsProvider.closeWindow(widget.window.windowID);
                   },
-                  onPressedMaximize: () {}, 
+                  onPressedMaximize: () {
+                    print(widget.window.windowID);
+                  }, 
                   onPressedClose: () {
                     
                     setState(() {

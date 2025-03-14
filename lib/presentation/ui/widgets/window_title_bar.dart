@@ -15,7 +15,11 @@ class WindowTitleBar extends StatelessWidget {
   final VoidCallback onPressedMaximize;
   final VoidCallback onPressedClose;
 
-  const WindowTitleBar({super.key, required this.titleBarHeight, required this.titleBarWidth, required this.title, required this.onPressedMinimize, required this.onPressedMaximize, required this.onPressedClose});
+  final bool hasMinimizeButton;
+  final bool hasMaximizeButton;
+  final bool hasCloseButton;
+
+  const WindowTitleBar({super.key, required this.titleBarHeight, required this.titleBarWidth, required this.title, required this.onPressedMinimize, required this.onPressedMaximize, required this.onPressedClose, required this.hasMinimizeButton, required this.hasMaximizeButton, required this.hasCloseButton});
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +39,15 @@ class WindowTitleBar extends StatelessWidget {
             DefaultTextStyle(style: TextStyle(fontSize: 18, color: Color(0xFFF3E9DC)), child: Text(getValueByLangAndKey(languageProvider.lang, title))),
             Row(
               children: [
-                TitleBarButton(
+                hasMinimizeButton == false ? Container() : TitleBarButton(
                   onPressed: onPressedMinimize,
                   icon: Icons.minimize,
                 ),
-                TitleBarButton(
+                hasMaximizeButton == false ? Container() : TitleBarButton(
                   onPressed: onPressedMaximize,
                   icon: Icons.maximize,
                 ),
-                TitleBarButton(
+                hasCloseButton == false ? Container() : TitleBarButton(
                   onPressed: onPressedClose,
                   icon: Icons.close,
                 )
