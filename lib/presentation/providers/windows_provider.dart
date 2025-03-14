@@ -10,6 +10,9 @@ class WindowsProvider extends ChangeNotifier {
       isOpen: false,
       windowWidth: 300, 
       windowHeight: 300,
+      hasCloseButton: true,
+      hasMinimizeButton: true,
+      hasMaximizeButton: true
     ),
     WindowModel(
       windowID: 2,
@@ -17,6 +20,9 @@ class WindowsProvider extends ChangeNotifier {
       isOpen: true,
       windowWidth: 400, 
       windowHeight: 600,
+      hasCloseButton: true,
+      hasMinimizeButton: true,
+      hasMaximizeButton: true
     ),
     WindowModel(
       windowID: 3,
@@ -24,6 +30,9 @@ class WindowsProvider extends ChangeNotifier {
       isOpen: false,
       windowWidth: 400, 
       windowHeight: 600,
+      hasCloseButton: true,
+      hasMinimizeButton: true,
+      hasMaximizeButton: true
     ),
     WindowModel(
       windowID: 4,
@@ -31,6 +40,9 @@ class WindowsProvider extends ChangeNotifier {
       isOpen: false,
       windowWidth: 400, 
       windowHeight: 500,
+      hasCloseButton: true,
+      hasMinimizeButton: true,
+      hasMaximizeButton: true
     ),
     WindowModel(
       windowID: 5,
@@ -38,7 +50,20 @@ class WindowsProvider extends ChangeNotifier {
       isOpen: false,
       windowWidth: 500, 
       windowHeight: 250,
+      hasCloseButton: true,
+      hasMinimizeButton: true,
+      hasMaximizeButton: true
     ),
+    WindowModel(
+      windowID: 6,
+      title: "warning_title",
+      isOpen: true,
+      windowWidth: 350,
+      windowHeight: 200,
+      hasCloseButton: true,
+      hasMinimizeButton: false,
+      hasMaximizeButton: false
+    )
   ];
 
   void openWindow(int windowId) {

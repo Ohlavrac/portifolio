@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/language_provider.dart';
 import 'package:portifolio/presentation/providers/screen_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
+import 'package:portifolio/presentation/ui/widgets/app_windows/attention_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/spotify_content.dart';
@@ -28,9 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
     Text("Ola Mundo I"),
     UserInfo(),
     Text("Ola Mundo III"),
-    //Text("OLA MUNDO MANO"),
     SendEmailContent(),
-    SpotifyContent()
+    SpotifyContent(),
+    AttentionContent(),
   ];
 
   List<IconModel> icons = [
@@ -87,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
           BaseWindow(window: windowsProvider.windowsList[2], content: contents[windowsProvider.windowsList[2].windowID-1]),
           BaseWindow(window: windowsProvider.windowsList[3], content: contents[windowsProvider.windowsList[3].windowID-1]),
           BaseWindow(window: windowsProvider.windowsList[4], content: contents[windowsProvider.windowsList[4].windowID-1]),
+          BaseWindow(window: windowsProvider.windowsList[5], content: contents[windowsProvider.windowsList[5].windowID-1]),
           Visibility(visible: true, child: Container(),)
         ],
       ),
