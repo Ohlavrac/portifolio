@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/ui/widgets/retro_elevated_button_widget.dart';
-import 'package:portifolio/presentation/ui/widgets/start_button.dart';
 
 class AttentionContent extends StatelessWidget {
   const AttentionContent({super.key});

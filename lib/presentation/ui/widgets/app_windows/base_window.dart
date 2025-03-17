@@ -95,11 +95,14 @@ class _BaseWindowState extends State<BaseWindow> {
                   onPressedMaximize: () {}, 
                   onPressedClose: () {}
                 ),
-                Container(
-                  height: widget.window.windowHeight-45,
-                  width: widget.window.windowWidth-5,
-                  color: Color(0xffc1c1c1),
-                  child: widget.content
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                  child: Container(
+                    height: widget.window.windowHeight-45,
+                    width: widget.window.windowWidth-5,
+                    color: Color(0xffc1c1c1),
+                    child: widget.content
+                  ),
                 )
               ],
             ),
@@ -166,11 +169,14 @@ class _BaseWindowState extends State<BaseWindow> {
                     });
                   }
                 ),
-                Container(
-                  height: widget.window.windowHeight-45,
-                  width: widget.window.windowWidth-5,
-                  color: Color(0xffc1c1c1),
-                  child: widget.content
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                  child: Container(
+                    height: widget.window.windowHeight-45,
+                    width: widget.window.windowWidth-5,
+                    color: Color(0xffc1c1c1),
+                    child: widget.content
+                  ),
                 )
               ],
             ),
