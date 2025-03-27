@@ -8,6 +8,7 @@ class WindowsProvider extends ChangeNotifier {
       windowID: 1,
       title: "my_network_title",
       isOpen: false,
+      isMinimized: true,
       windowWidth: 300, 
       windowHeight: 300,
       hasCloseButton: true,
@@ -18,6 +19,7 @@ class WindowsProvider extends ChangeNotifier {
       windowID: 2,
       title: "informations_title",
       isOpen: true,
+      isMinimized: false,
       windowWidth: 400, 
       windowHeight: 600,
       hasCloseButton: true,
@@ -28,6 +30,7 @@ class WindowsProvider extends ChangeNotifier {
       windowID: 3,
       title: "social_title",
       isOpen: false,
+      isMinimized: true,
       windowWidth: 400, 
       windowHeight: 600,
       hasCloseButton: true,
@@ -38,6 +41,7 @@ class WindowsProvider extends ChangeNotifier {
       windowID: 4,
       title: "send_email_title",
       isOpen: false,
+      isMinimized: true,
       windowWidth: 400, 
       windowHeight: 500,
       hasCloseButton: true,
@@ -48,6 +52,7 @@ class WindowsProvider extends ChangeNotifier {
       windowID: 5,
       title: "spotify_title",
       isOpen: false,
+      isMinimized: true,
       windowWidth: 530, 
       windowHeight: 250,
       hasCloseButton: true,
@@ -58,6 +63,7 @@ class WindowsProvider extends ChangeNotifier {
       windowID: 6,
       title: "warning_title",
       isOpen: true,
+      isMinimized: false,
       windowWidth: 370,
       windowHeight: 200,
       hasCloseButton: true,
@@ -69,7 +75,7 @@ class WindowsProvider extends ChangeNotifier {
   void openWindow(int windowId) {
     for (int index = 0; index < windowsList.length; index++) {
       if (windowsList[index].windowID == windowId) {
-        windowsList[index].isOpen = true;
+        windowsList[index].isOpen == true ? null : windowsList[index].isOpen = true;
       }
     }
 
@@ -82,8 +88,15 @@ class WindowsProvider extends ChangeNotifier {
         windowsList[index].isOpen = false;
       }
     }
-
     notifyListeners();
+  }
+
+  void minimizeWindow(int windowId) {
+    for (int index = 0; index < windowsList.length; index++) {
+      if (windowsList[index].windowID == windowId) {
+        windowsList[index].isMinimized = true;
+      }
+    }
   }
 
   void windowReposition(int windowId) {
