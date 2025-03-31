@@ -78,6 +78,7 @@ class WindowsProvider extends ChangeNotifier {
     for (int index = 0; index < windowsList.length; index++) {
       if (windowsList[index].windowID == windowId) {
         windowsList[index].isOpen == true ? null : windowsList[index].isOpen = true;
+        windowsList[index].isMinimized = false;
         addWindowOpenToWindowsOpenList(windowsList[index]);
       }
     }
@@ -89,7 +90,7 @@ class WindowsProvider extends ChangeNotifier {
     for (int index = 0; index < windowsList.length; index++) {
       if (windowsList[index].windowID == windowId) {
         windowsList[index].isOpen = false;
-        removeWindowToWindowsOpenList(windowsList[index]);
+        windowsList[index].isMinimized == true ? null : removeWindowToWindowsOpenList(windowsList[index]);
       }
     }
     notifyListeners();

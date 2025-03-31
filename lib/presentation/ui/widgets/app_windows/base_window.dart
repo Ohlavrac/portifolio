@@ -156,8 +156,8 @@ class _BaseWindowState extends State<BaseWindow> {
                   hasMaximizeButton: widget.window.hasMaximizeButton,
                   hasMinimizeButton: widget.window.hasMinimizeButton,
                   onPressedMinimize: () {
-                    //windowsProvider.closeWindow(widget.window.windowID);
                     windowsProvider.minimizeWindow(widget.window.windowID);
+                    windowsProvider.closeWindow(widget.window.windowID);
                   },
                   onPressedMaximize: () {
                     print(widget.window.windowID);

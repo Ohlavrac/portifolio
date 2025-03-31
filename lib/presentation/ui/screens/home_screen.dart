@@ -118,7 +118,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 scrollDirection: Axis.horizontal,
                 itemCount:  windowsProvider.windowsOpen.length,
                 itemBuilder: (context, index) {
-                  return ElevatedButton(onPressed: () {}, child: Text("${windowsProvider.windowsOpen[index].title} | $index"));                
+                  return ElevatedButton(
+                    onPressed: () {
+                      windowsProvider.openWindow(windowsProvider.windowsOpen[index].windowID);
+                    },
+                    child: Text("${windowsProvider.windowsOpen[index].title} | $index")
+                  );                
                 },
               ),
             ),
