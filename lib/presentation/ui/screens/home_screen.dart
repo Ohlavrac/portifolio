@@ -9,6 +9,8 @@ import 'package:portifolio/presentation/ui/widgets/app_windows/spotify_content.d
 import 'package:portifolio/presentation/ui/widgets/app_windows/user_info.dart';
 import 'package:portifolio/presentation/ui/widgets/desktop_icon.dart';
 import 'package:portifolio/presentation/ui/widgets/start_button.dart';
+import 'package:portifolio/utils/languages.dart';
+import 'package:portifolio/utils/verify_windows_icon.dart';
 import 'package:provider/provider.dart';
 
 import '../../../domain/models/icon_model.dart';
@@ -118,12 +120,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 scrollDirection: Axis.horizontal,
                 itemCount:  windowsProvider.windowsOpen.length,
                 itemBuilder: (context, index) {
-                  return ElevatedButton(
-                    onPressed: () {
-                      windowsProvider.openWindow(windowsProvider.windowsOpen[index].windowID);
-                    },
-                    child: Text("${windowsProvider.windowsOpen[index].title} | $index")
-                  );                
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: StartButton(
+                      title: eng[windowsProvider.windowsOpen[index].title],
+                      icon: Image.asset(verifyWindowIcon(windowsProvider.windowsOpen[index].title), scale: 10,),
+                      onPressed: () {
+                        windowsProvider.openWindow(windowsProvider.windowsOpen[index].windowID);
+                      }
+                    ),
+                  );               
                 },
               ),
             ),

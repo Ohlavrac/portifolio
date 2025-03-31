@@ -56,6 +56,7 @@ class StartButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             icon == null ? Container() : icon!,
+            SizedBox(width: 5,),
             Text(title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
           ],
         ),
