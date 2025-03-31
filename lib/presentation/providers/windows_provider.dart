@@ -8,7 +8,7 @@ class WindowsProvider extends ChangeNotifier {
       windowID: 1,
       title: "my_network_title",
       isOpen: false,
-      isMinimized: true,
+      isMinimized: false,
       windowWidth: 300, 
       windowHeight: 300,
       hasCloseButton: true,
@@ -30,7 +30,7 @@ class WindowsProvider extends ChangeNotifier {
       windowID: 3,
       title: "social_title",
       isOpen: false,
-      isMinimized: true,
+      isMinimized: false,
       windowWidth: 400, 
       windowHeight: 600,
       hasCloseButton: true,
@@ -41,7 +41,7 @@ class WindowsProvider extends ChangeNotifier {
       windowID: 4,
       title: "send_email_title",
       isOpen: false,
-      isMinimized: true,
+      isMinimized: false,
       windowWidth: 400, 
       windowHeight: 500,
       hasCloseButton: true,
@@ -52,7 +52,7 @@ class WindowsProvider extends ChangeNotifier {
       windowID: 5,
       title: "spotify_title",
       isOpen: false,
-      isMinimized: true,
+      isMinimized: false,
       windowWidth: 530, 
       windowHeight: 250,
       hasCloseButton: true,
@@ -72,10 +72,13 @@ class WindowsProvider extends ChangeNotifier {
     )
   ];
 
+  List<WindowModel> windowsOpen = [];
+
   void openWindow(int windowId) {
     for (int index = 0; index < windowsList.length; index++) {
       if (windowsList[index].windowID == windowId) {
         windowsList[index].isOpen == true ? null : windowsList[index].isOpen = true;
+        addWindowOpenToWindowsOpenList(windowsList[index]);
       }
     }
 
@@ -86,6 +89,7 @@ class WindowsProvider extends ChangeNotifier {
     for (int index = 0; index < windowsList.length; index++) {
       if (windowsList[index].windowID == windowId) {
         windowsList[index].isOpen = false;
+        removeWindowToWindowsOpenList(windowsList[index]);
       }
     }
     notifyListeners();
@@ -110,6 +114,34 @@ class WindowsProvider extends ChangeNotifier {
 
     windowsList.remove(aux);
     windowsList.add(aux);
+
+    notifyListeners();
+  }
+
+  void initWindowsOpenList() {
+    for (int index = 0; index < windowsList.length; index++) {
+      if (windowsList[index].isOpen) {
+        windowsOpen.add(windowsList[index]);
+      } else {
+        continue;
+      }
+    }
+  }
+
+  void addWindowOpenToWindowsOpenList(WindowModel window) {
+    
+    if (!windowsOpen.contains(window)) {
+      print(window.title);
+      windowsOpen.add(window);
+    }
+
+    notifyListeners();
+  }
+
+  void removeWindowToWindowsOpenList(WindowModel window) {
+    if (windowsOpen.contains(window)) {
+      windowsOpen.remove(window);
+    }
 
     notifyListeners();
   }

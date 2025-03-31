@@ -21,6 +21,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   late Offset endpos = Offset.zero;
 
   DateTime date = DateTime.now();
@@ -41,6 +42,18 @@ class _HomeScreenState extends State<HomeScreen> {
     IconModel(id: 4, windowId: 3, imageUrl: "./assets/icons/msn-icon.png", title: "Social"),
     IconModel(id: 5, windowId: 5, imageUrl: "./assets/icons/song-icon.png", title: "Spotify"),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<WindowsProvider>().initWindowsOpenList();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +112,16 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             StartButton(title: "Start", icon: Icon(Icons.computer, color: Colors.black,), onPressed: () {},),
+            SizedBox(width: 10,),
+            Expanded(
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount:  windowsProvider.windowsOpen.length,
+                itemBuilder: (context, index) {
+                  return ElevatedButton(onPressed: () {}, child: Text("${windowsProvider.windowsOpen[index].title} | $index"));                
+                },
+              ),
+            ),
             Row(
               children: [
                 ElevatedButton(
