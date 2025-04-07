@@ -24,3 +24,14 @@ flutter:
     - assets/icons/
     - assets/langs/en.json
     - assets/langs/pt_BR.json
+
+  fonts: 
+    - family: Retro
+      fonts:
+        - asset: fonts/Fixedsys_Excelsior.ttf
+    - family: Retro2
+      fonts:
+        - asset: fonts/MSW98UI-Regular.ttf
+    - family: Retro2B
+      fonts:
+        - asset: fonts/MSW98UI-Bold.ttf
