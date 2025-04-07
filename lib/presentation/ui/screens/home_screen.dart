@@ -133,22 +133,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            Row(
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    languageProvider.lang == "ENG" ? languageProvider.setLangPTBR() : languageProvider.setLangENG();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(1),
-                    backgroundColor: Colors.transparent,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
-                    elevation: 0.0,
-                    shadowColor: Colors.transparent,
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(255, 174, 173, 174),
                   ),
-                  child: Text(languageProvider.lang , style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold, fontFamily: "Retro2"),)
-                )
-              ],
+                  BoxShadow(
+                    color: Color(0xFFbdbcbd),
+                    spreadRadius: -2.0,
+                    blurRadius: 1.0
+                  )
+                ]
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                child: Row(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        languageProvider.lang == "ENG" ? languageProvider.setLangPTBR() : languageProvider.setLangENG();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(1),
+                        backgroundColor: Colors.transparent,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
+                        elevation: 0.0,
+                        shadowColor: Colors.transparent,
+                      ),
+                      child: Text(languageProvider.lang , style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold, fontFamily: "Retro2"),)
+                    )
+                  ],
+                ),
+              ),
             ),
           ],
         ),
