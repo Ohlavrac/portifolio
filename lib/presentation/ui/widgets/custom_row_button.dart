@@ -11,7 +11,7 @@ class CustomRowButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        DefaultTextStyle(style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 16), child: Text("$title: ",)),
+        DefaultTextStyle(style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 16, fontFamily: "Retro2B"), child: Text("$title: ",)),
         SizedBox(width: 3,),
         Container(
           height: 23,
@@ -55,7 +55,7 @@ class CustomRowButton extends StatelessWidget {
               elevation: 0.0,
               shadowColor: Colors.black,
             ),
-            child: Text(value, style: TextStyle(fontSize: 14, color: Colors.black)),
+            child: Text(value, style: TextStyle(fontSize: 14, color: Colors.black, fontFamily: "Retro2")),
           )
         )
       ],

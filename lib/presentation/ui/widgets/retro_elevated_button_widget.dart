@@ -54,7 +54,7 @@ class RetroElevatedButtonWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
+            Text(title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontFamily: "Retro2B", fontSize: 15),)
           ],
         ),
       ),

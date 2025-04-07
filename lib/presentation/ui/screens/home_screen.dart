@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     elevation: 0.0,
                     shadowColor: Colors.transparent,
                   ),
-                  child: Text(languageProvider.lang , style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold),)
+                  child: Text(languageProvider.lang , style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold, fontFamily: "Retro2"),)
                 )
               ],
             ),

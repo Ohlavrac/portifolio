@@ -57,7 +57,7 @@ class StartButton extends StatelessWidget {
           children: [
             icon == null ? Container() : icon!,
             SizedBox(width: 5,),
-            Text(title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
+            Text(title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontFamily: "Retro2B", fontSize: 15),)
           ],
         ),
       ),

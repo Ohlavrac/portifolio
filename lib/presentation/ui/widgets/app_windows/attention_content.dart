@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/retro_elevated_button_widget.dart';
+import 'package:provider/provider.dart';
 
 class AttentionContent extends StatelessWidget {
   const AttentionContent({super.key});
@@ -20,7 +22,7 @@ class AttentionContent extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold
                 ),
-                child: Text("THIS PAGE IS UNDER CONSTRUCTION")
+                child: Text("THIS PAGE IS UNDER CONSTRUCTION", style: TextStyle(fontFamily: "Retro2B", fontSize: 14),)
               )
             ],
           ),
@@ -28,7 +30,9 @@ class AttentionContent extends StatelessWidget {
             title: "OK",
             height: 30,
             width: 50,
-            onPressed: () {}
+            onPressed: () {
+              context.read<WindowsProvider>().closeWindow(6);
+            }
           )
         ],
       ),
