@@ -15,7 +15,7 @@ class SpotifyContent extends StatelessWidget {
           Container(
             height: 150,
             width: 150,
-            color: Colors.red,
+            child: Image.asset("./assets/images/spotify_retro.png", fit: BoxFit.fill),
           ),
           SizedBox(width: 10,),
           Column(
