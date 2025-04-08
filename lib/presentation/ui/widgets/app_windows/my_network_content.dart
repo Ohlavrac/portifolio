@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/ui/widgets/retro_elevated_button_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyNetworkContent extends StatelessWidget {
   const MyNetworkContent({super.key});
@@ -35,7 +36,10 @@ class MyNetworkContent extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   DefaultTextStyle(style: TextStyle(fontFamily: "Retro2B") ,child: Text("LinkedIn . . . ")),
-                  RetroElevatedButtonWidget(title: "Link", onPressed: () {})
+                  RetroElevatedButtonWidget(title: "Link", onPressed: () async {
+                    Uri url = Uri.parse("https://www.linkedin.com/in/joaovictorrodriguescarvalho/");
+                    await launchUrl(url);
+                  })
                 ],
               ),
               Padding(
@@ -44,7 +48,10 @@ class MyNetworkContent extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     DefaultTextStyle(style: TextStyle(fontFamily: "Retro2B") ,child: Text("GitHub . . . ")),
-                    RetroElevatedButtonWidget(title: "Link", onPressed: () {})
+                    RetroElevatedButtonWidget(title: "Link", onPressed: () async {
+                      Uri url = Uri.parse("https://github.com/ohlavrac");
+                      await launchUrl(url);
+                    })
                   ],
                 ),
               ),
@@ -52,7 +59,10 @@ class MyNetworkContent extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   DefaultTextStyle(style: TextStyle(fontFamily: "Retro2B") ,child: Text("HackerRank . . . ")),
-                  RetroElevatedButtonWidget(title: "Link", onPressed: () {})
+                  RetroElevatedButtonWidget(title: "Link", onPressed: () async {
+                    Uri url = Uri.parse("https://www.hackerrank.com/profile/joaovicrcarvalho");
+                    await launchUrl(url);
+                  })
                 ],
               ),
             ],
