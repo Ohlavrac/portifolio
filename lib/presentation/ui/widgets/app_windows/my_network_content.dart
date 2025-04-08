@@ -7,11 +7,12 @@ class MyNetworkContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Container(
-          color: Colors.red,
-          height: 250,
+        SizedBox(
+          height: 332,
           width: 150,
+          child: Image.asset("./assets/images/my_network_image.png", fit: BoxFit.fill,),
         ),
         SizedBox(
           width: 10,
@@ -21,7 +22,7 @@ class MyNetworkContent extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              DefaultTextStyle(style: TextStyle(fontFamily: "Retro2B", fontSize: 20), child: Text("Connect with me with my networks")),
+              DefaultTextStyle(style: TextStyle(fontFamily: "Retro2B", fontSize: 20), child: Text("Connect with me in my networks")),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Divider(
