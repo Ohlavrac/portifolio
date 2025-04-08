@@ -63,7 +63,21 @@ class _SendEmailContentState extends State<SendEmailContent> {
                 }, 
                 child: Text("SEND EMAIL")
               )*/
-              StartButton(title: "Send", onPressed: () {},)
+              StartButton(
+                title: "Send",
+                onPressed: () {
+                  emailProvider.sendEmail(
+                    email: emailProvider.email,
+                    name: "PORTIFOLIO EMAIL",
+                    message: emailProvider.message,
+                    title: "EMAIL FROM PORTIFOLIO"
+                  );
+
+                  setState(() {
+                    emailProvider.clearFields();
+                  });
+                },
+              )
             ],
           )
         ],
