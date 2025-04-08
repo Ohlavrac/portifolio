@@ -4,6 +4,7 @@ import 'package:portifolio/presentation/providers/screen_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/attention_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
+import 'package:portifolio/presentation/ui/widgets/app_windows/my_network_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/spotify_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/user_info.dart';
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   DateTime date = DateTime.now();
 
   List<Widget> contents = [
-    Text("Ola Mundo I"),
+    MyNetworkContent(),
     UserInfo(),
     Text("Ola Mundo III"),
     SendEmailContent(),
@@ -115,6 +116,12 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             StartButton(title: "Start", icon: Icon(Icons.computer, color: Colors.black,), onPressed: () {},),
             SizedBox(width: 10,),
+            Container(
+              height: 50,
+              color: Color.fromARGB(255, 142, 142, 142),
+              width: 3,
+            ),
+            SizedBox(width: 5,),
             Expanded(
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -133,22 +140,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            Row(
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    languageProvider.lang == "ENG" ? languageProvider.setLangPTBR() : languageProvider.setLangENG();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(1),
-                    backgroundColor: Colors.transparent,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
-                    elevation: 0.0,
-                    shadowColor: Colors.transparent,
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(255, 174, 173, 174),
                   ),
-                  child: Text(languageProvider.lang , style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold),)
-                )
-              ],
+                  BoxShadow(
+                    color: Color(0xFFbdbcbd),
+                    spreadRadius: -2.0,
+                    blurRadius: 1.0
+                  )
+                ]
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                child: Row(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        languageProvider.lang == "ENG" ? languageProvider.setLangPTBR() : languageProvider.setLangENG();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(1),
+                        backgroundColor: Colors.transparent,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
+                        elevation: 0.0,
+                        shadowColor: Colors.transparent,
+                      ),
+                      child: Text(languageProvider.lang , style: TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold, fontFamily: "Retro2"),)
+                    )
+                  ],
+                ),
+              ),
             ),
           ],
         ),

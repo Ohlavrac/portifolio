@@ -31,7 +31,7 @@ class DesktopIcon extends StatelessWidget {
               children: [
                 Image.asset(imageUrl, height: height, width: height,),
                 SizedBox(height: 3),
-                Text(title, style: TextStyle(color: Colors.white), maxLines: 2)
+                Text(title, style: TextStyle(color: Colors.white, fontFamily: "Retro2"), maxLines: 2)
               ],
             ),
           ),

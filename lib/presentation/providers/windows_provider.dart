@@ -9,8 +9,8 @@ class WindowsProvider extends ChangeNotifier {
       title: "my_network_title",
       isOpen: false,
       isMinimized: false,
-      windowWidth: 300, 
-      windowHeight: 300,
+      windowWidth: 500, 
+      windowHeight: 350,
       hasCloseButton: true,
       hasMinimizeButton: true,
       hasMaximizeButton: true
