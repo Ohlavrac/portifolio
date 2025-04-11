@@ -36,21 +36,12 @@ class EmailProvider extends ChangeNotifier {
           }
         })
       );
-
-      String seila = const String.fromEnvironment("EMAIL_SERVICE_ID");
-
-      print(seila);
-
       
       _isSending = false;
       notifyListeners();
 
-      print(response.body);
-      print(response.statusCode);
-
       return response.statusCode == 200;
     } catch (error) {
-      print("error: $error");
       _isSending = false;
       notifyListeners();
       return false;
