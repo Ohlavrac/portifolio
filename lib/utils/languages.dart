@@ -6,6 +6,7 @@ Map<String, dynamic> eng = {
     "my_network_title": "My Network",
     "spotify_title": "Spotify",
     "warning_title": "Warning",
+    "sending_email": "Sending Email . . ."
   },
   "texts": {
     "name": "Name",
@@ -36,6 +37,7 @@ Map<String, dynamic> ptbr = {
     "my_network_title": "Minha Rede",
     "spotify_title": "Spotify",
     "warning_title": "Atenção",
+    "sending_email": "Enviando Email . . ."
   },
   "texts": {
     "name": "Nome",
