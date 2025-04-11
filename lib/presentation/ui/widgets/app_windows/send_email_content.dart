@@ -30,7 +30,7 @@ class _SendEmailContentState extends State<SendEmailContent> {
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 5),
-            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getValueByLangAndKey(languageProvider.lang, "your_message")}:")),
+            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getTextValueByLanguageKey(languageProvider.lang, "your_message")}:")),
           ),
           TextInput(
             initialValue: emailProvider.message,
@@ -42,7 +42,7 @@ class _SendEmailContentState extends State<SendEmailContent> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 5),
-            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getValueByLangAndKey(languageProvider.lang, "your_email")}:")),
+            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getTextValueByLanguageKey(languageProvider.lang, "your_email")}:")),
           ),
           TextInput(
             initialValue: emailProvider.email,

@@ -36,7 +36,7 @@ class WindowTitleBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            DefaultTextStyle(style: TextStyle(fontSize: 18, color: Color(0xFFF3E9DC), fontFamily: "Retro2"), child: Text(getValueByLangAndKey(languageProvider.lang, title))),
+            DefaultTextStyle(style: TextStyle(fontSize: 18, color: Color(0xFFF3E9DC), fontFamily: "Retro2"), child: Text(getTitleValueByLanguageKey(languageProvider.lang, title))),
             Row(
               children: [
                 hasMinimizeButton == false ? Container() : TitleBarButton(

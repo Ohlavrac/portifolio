@@ -133,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: StartButton(
-                      title: eng[windowsProvider.windowsOpen[index].title],
+                      title: eng["titles"][windowsProvider.windowsOpen[index].title],
                       icon: Image.asset(verifyWindowIcon(windowsProvider.windowsOpen[index].title), scale: 10,),
                       onPressed: () {
                         windowsProvider.openWindow(windowsProvider.windowsOpen[index].windowID);

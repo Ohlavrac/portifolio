@@ -24,7 +24,7 @@ class UserInfo extends StatelessWidget {
                 style: TextStyle(),
                 child: Text.rich(TextSpan(
                   children: [
-                    TextSpan(text: "${getValueByLangAndKey(languageProvider.lang, "name")}:\n", style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B")),
+                    TextSpan(text: "${getTextValueByLanguageKey(languageProvider.lang, "name")}:\n", style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B")),
                     TextSpan(text: "João Victor Rodrigues Carvalho", style: TextStyle(fontFamily: "Retro2"))
                   ]
                 )),
@@ -42,37 +42,37 @@ class UserInfo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, fontFamily: "Retro2B"), child: Text("${getValueByLangAndKey(languageProvider.lang, "software_engineer")}.")),
+                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, fontFamily: "Retro2B"), child: Text("${getTextValueByLanguageKey(languageProvider.lang, "software_engineer")}.")),
                 SizedBox(height: 8,),
-                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, fontFamily: "Retro2B"), child: Text("${getValueByLangAndKey(languageProvider.lang, "education")}:")),
-                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.normal, fontFamily: "Retro2"), child: Text("${getValueByLangAndKey(languageProvider.lang, "graduation_type")}.")),
-                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.normal, fontFamily: "Retro2"), child: Text(getValueByLangAndKey(languageProvider.lang, "education"))),
-                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.normal, fontFamily: "Retro2"), child: Text(getValueByLangAndKey(languageProvider.lang, "college"))),              
-                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.normal, fontFamily: "Retro2"), child: Text(getValueByLangAndKey(languageProvider.lang, "college_period"))),
+                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, fontFamily: "Retro2B"), child: Text("${getTextValueByLanguageKey(languageProvider.lang, "education")}:")),
+                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.normal, fontFamily: "Retro2"), child: Text("${getTextValueByLanguageKey(languageProvider.lang, "graduation_type")}.")),
+                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.normal, fontFamily: "Retro2"), child: Text(getTextValueByLanguageKey(languageProvider.lang, "education"))),
+                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.normal, fontFamily: "Retro2"), child: Text(getTextValueByLanguageKey(languageProvider.lang, "college"))),              
+                DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.normal, fontFamily: "Retro2"), child: Text(getTextValueByLanguageKey(languageProvider.lang, "college_period"))),
               ],
             )
           ],
         ),
         SizedBox(height: 10,),
-        DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getValueByLangAndKey(languageProvider.lang, "about_me")}:")),
+        DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getTextValueByLanguageKey(languageProvider.lang, "about_me")}:")),
         Padding(
           padding: const EdgeInsets.only(top: 2, bottom: 10),
-          child: DefaultTextStyle(style: TextStyle(fontFamily: "Retro2"), child: Text(textAlign: TextAlign.justify, getValueByLangAndKey(languageProvider.lang, "about_me_text"))),
+          child: DefaultTextStyle(style: TextStyle(fontFamily: "Retro2"), child: Text(textAlign: TextAlign.justify, getTextValueByLanguageKey(languageProvider.lang, "about_me_text"))),
         ),
-        DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getValueByLangAndKey(languageProvider.lang, "programming_langs")}:")),
+        DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getTextValueByLanguageKey(languageProvider.lang, "programming_langs")}:")),
         Padding(
           padding: const EdgeInsets.only(top: 2, bottom: 10),
           child: DefaultTextStyle(style: TextStyle(fontFamily: "Retro2"), child: Text("Dart | Java | Javascript | Python | C | Lua | Typescript"),),
         ),
-        DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getValueByLangAndKey(languageProvider.lang, "tecnologies")}:")),
+        DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getTextValueByLanguageKey(languageProvider.lang, "tecnologies")}:")),
         Padding(
           padding: const EdgeInsets.only(top: 2, bottom: 10),
           child: DefaultTextStyle(style: TextStyle(fontFamily: "Retro2"), child: Text("Flutter | Spring Boot | Express | Firebase | Prisma | MySQL | MongoDB | PostgreSQL"),),
         ),
-        DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getValueByLangAndKey(languageProvider.lang, "languages")}:")),
+        DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getTextValueByLanguageKey(languageProvider.lang, "languages")}:")),
         Padding(
           padding: const EdgeInsets.only(top: 2, bottom: 10),
-          child: DefaultTextStyle(style: TextStyle(fontFamily: "Retro2"), child: Text(getValueByLangAndKey(languageProvider.lang, "languages_content")),),
+          child: DefaultTextStyle(style: TextStyle(fontFamily: "Retro2"), child: Text(getTextValueByLanguageKey(languageProvider.lang, "languages_content")),),
         ),
       ],
     );
