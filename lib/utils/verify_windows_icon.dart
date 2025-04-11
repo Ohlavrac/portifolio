@@ -12,6 +12,8 @@ String verifyWindowIcon(String windowTitle) {
       return "./assets/icons/song-icon.png";
     case "warning_title":
       return "./assets/icons/warning-icon.png";
+    case "sending_email":
+      return "./assets/icons/email-icon.png";
     default:
       return "";
   }
