@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/email_provider.dart';
 import 'package:portifolio/presentation/providers/language_provider.dart';
+import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/start_button.dart';
 import 'package:portifolio/presentation/ui/widgets/text_input.dart';
 import 'package:portifolio/utils/languages.dart';
@@ -19,6 +20,7 @@ class _SendEmailContentState extends State<SendEmailContent> {
   Widget build(BuildContext context) {
 
     var emailProvider = Provider.of<EmailProvider>(context);
+    var windowProvider = Provider.of<WindowsProvider>(context);
     var languageProvider = Provider.of<LanguageProvider>(context);
 
     return Padding(
@@ -54,28 +56,26 @@ class _SendEmailContentState extends State<SendEmailContent> {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              /*ElevatedButton(
-                onPressed: () {
-                  print("${emailProvider.email} | ${emailProvider.message}");
-                  setState(() {
-                    emailProvider.clearFields();
-                  });    
-                }, 
-                child: Text("SEND EMAIL")
-              )*/
               StartButton(
                 title: "Send",
                 onPressed: () {
-                  emailProvider.sendEmail(
-                    email: emailProvider.email,
-                    name: "PORTIFOLIO EMAIL",
-                    message: emailProvider.message,
-                    title: "EMAIL FROM PORTIFOLIO"
-                  );
+                  if (emailProvider.email.isEmpty || emailProvider.message.isEmpty) {
 
-                  setState(() {
-                    emailProvider.clearFields();
-                  });
+                  } else {
+                    /*emailProvider.sendEmail(
+                      email: emailProvider.email,
+                      name: "PORTIFOLIO EMAIL",
+                      message: emailProvider.message,
+                      title: "EMAIL FROM PORTIFOLIO"
+                    );*/
+
+                    setState(() {
+                      emailProvider.clearFields();
+                    });
+
+                    windowProvider.closeWindow(4);
+                    windowProvider.openWindow(7); //SENDING EMAIL ID  
+                  }
                 },
               )
             ],
