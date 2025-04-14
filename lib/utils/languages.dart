@@ -7,7 +7,8 @@ Map<String, dynamic> eng = {
     "spotify_title": "Spotify",
     "warning_title": "Warning",
     "sending_email": "Sending Email . . .",
-    "email_sent": "Email Sent :D"
+    "email_sent": "Email Sent :D",
+    "send_email_error": "Send Email Error"
   },
   "texts": {
     "name": "Name",
@@ -27,7 +28,8 @@ Map<String, dynamic> eng = {
     "languages_content": "Portuguese (Fluent) | English (Advanced Intermediate)",
     "your_email": "Your Email",
     "your_message": "Your Message",
-    "under_construction": "THIS PAGE IS UNDER CONSTRUCTION"
+    "under_construction": "THIS PAGE IS UNDER CONSTRUCTION",
+    "email_error_msg": "Error sending email\nPlease try again later"
   },
 };
 
@@ -40,7 +42,8 @@ Map<String, dynamic> ptbr = {
     "spotify_title": "Spotify",
     "warning_title": "Atenção",
     "sending_email": "Enviando Email . . .",
-    "email_sent": "Email Enviado :D"
+    "email_sent": "Email Enviado :D",
+    "send_email_error": "Erro ao Enviar Email"
   },
   "texts": {
     "name": "Nome",
@@ -60,7 +63,8 @@ Map<String, dynamic> ptbr = {
     "languages_content": "Portugues (Fluente) | Ingles (Intermediario)",
     "your_email": "Seu Email",
     "your_message": "Sua Mensagem",
-    "under_construction": "ESTE SITE ESTA EM CONTRUÇÃO"
+    "under_construction": "ESTE SITE ESTA EM CONTRUÇÃO",
+    "email_error_msg": "Erro ao enviar o email\nTente novamente depois"
   }
 };
 

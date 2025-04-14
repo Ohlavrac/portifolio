@@ -7,6 +7,7 @@ import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart'
 import 'package:portifolio/presentation/ui/widgets/app_windows/email_sent_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/my_network_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_content.dart';
+import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_error_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_loading_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/spotify_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/user_info.dart';
@@ -39,7 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
     SpotifyContent(),
     AttentionContent(),
     SendEmailLoadingContent(),
-    EmailSentContent()
+    EmailSentContent(),
+    SendEmailErrorContent()
   ];
 
   List<IconModel> icons = [
@@ -111,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
           BaseWindow(window: windowsProvider.windowsList[5], content: contents[windowsProvider.windowsList[5].windowID-1]),
           BaseWindow(window: windowsProvider.windowsList[6], content: contents[windowsProvider.windowsList[6].windowID-1]),
           BaseWindow(window: windowsProvider.windowsList[7], content: contents[windowsProvider.windowsList[7].windowID-1]),
+          BaseWindow(window: windowsProvider.windowsList[8], content: contents[windowsProvider.windowsList[8].windowID-1]),
           Visibility(visible: true, child: Container(),)
         ],
       ),

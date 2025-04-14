@@ -16,6 +16,8 @@ String verifyWindowIcon(String windowTitle) {
       return "./assets/icons/email-icon.png";
     case "email_sent":
       return "./assets/icons/email-icon.png";
+    case "send_email_error":
+      return "./assets/icons/warning-icon.png";
     default:
       return "";
   }

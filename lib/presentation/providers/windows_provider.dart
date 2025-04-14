@@ -91,6 +91,17 @@ class WindowsProvider extends ChangeNotifier {
       hasCloseButton: true,
       hasMinimizeButton: false,
       hasMaximizeButton: false
+    ),
+    WindowModel(
+      windowID: 9,
+      title: "send_email_error",
+      isOpen: false,
+      isMinimized: false,
+      windowWidth: 370,
+      windowHeight: 200,
+      hasCloseButton: true,
+      hasMinimizeButton: false,
+      hasMaximizeButton: false
     )
   ];
 
