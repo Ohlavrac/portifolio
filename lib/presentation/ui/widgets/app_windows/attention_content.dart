@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/presentation/providers/language_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/retro_elevated_button_widget.dart';
+import 'package:portifolio/utils/languages.dart';
 import 'package:provider/provider.dart';
 
 class AttentionContent extends StatelessWidget {
@@ -8,6 +10,7 @@ class AttentionContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var languageProvider = Provider.of<LanguageProvider>(context);
     return Padding(
       padding: EdgeInsets.all(10),
       child: Column(
@@ -22,7 +25,7 @@ class AttentionContent extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold
                 ),
-                child: Text("THIS PAGE IS UNDER CONSTRUCTION", style: TextStyle(fontFamily: "Retro2B", fontSize: 14),)
+                child: Text(getTextValueByLanguageKey(languageProvider.lang, "under_construction"), style: TextStyle(fontFamily: "Retro2B", fontSize: 14),)
               )
             ],
           ),

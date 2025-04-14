@@ -6,7 +6,8 @@ Map<String, dynamic> eng = {
     "my_network_title": "My Network",
     "spotify_title": "Spotify",
     "warning_title": "Warning",
-    "sending_email": "Sending Email . . ."
+    "sending_email": "Sending Email . . .",
+    "email_sent": "Email Sent :D"
   },
   "texts": {
     "name": "Name",
@@ -25,7 +26,8 @@ Map<String, dynamic> eng = {
     "languages": "Languages",
     "languages_content": "Portuguese (Fluent) | English (Advanced Intermediate)",
     "your_email": "Your Email",
-    "your_message": "Your Message"
+    "your_message": "Your Message",
+    "under_construction": "THIS PAGE IS UNDER CONSTRUCTION"
   },
 };
 
@@ -37,7 +39,8 @@ Map<String, dynamic> ptbr = {
     "my_network_title": "Minha Rede",
     "spotify_title": "Spotify",
     "warning_title": "Atenção",
-    "sending_email": "Enviando Email . . ."
+    "sending_email": "Enviando Email . . .",
+    "email_sent": "Email Enviado :D"
   },
   "texts": {
     "name": "Nome",
@@ -56,7 +59,8 @@ Map<String, dynamic> ptbr = {
     "languages": "Idiomas",
     "languages_content": "Portugues (Fluente) | Ingles (Intermediario)",
     "your_email": "Seu Email",
-    "your_message": "Sua Mensagem"
+    "your_message": "Sua Mensagem",
+    "under_construction": "ESTE SITE ESTA EM CONTRUÇÃO"
   }
 };
 
