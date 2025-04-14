@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class EmailProvider extends ChangeNotifier {
@@ -25,9 +26,9 @@ class EmailProvider extends ChangeNotifier {
         emailServiceURL,
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
-          "service_id": const String.fromEnvironment("EMAIL_SERVICE_ID"),
-          "template_id": const String.fromEnvironment("EMAIL_TEMPLATE_ID"),
-          "user_id": const String.fromEnvironment("EMAIL_USER_ID"),
+          "service_id": dotenv.env["EMAIL_SERVICE_ID"] ?? const String.fromEnvironment("EMAIL_SERVICE_ID"),
+          "template_id": dotenv.env["EMAIL_TEMPLATE_ID"] ?? const String.fromEnvironment("EMAIL_TEMPLATE_ID"),
+          "user_id": dotenv.env["EMAIL_USER_ID"] ?? const String.fromEnvironment("EMAIL_USER_ID"),
           "template_params": {
             "name": name,
             "email": email,
