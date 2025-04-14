@@ -58,23 +58,31 @@ class _SendEmailContentState extends State<SendEmailContent> {
             children: [
               StartButton(
                 title: "Send",
-                onPressed: () {
+                onPressed: () async {
                   if (emailProvider.email.isEmpty || emailProvider.message.isEmpty) {
 
                   } else {
-                    /*emailProvider.sendEmail(
+                    bool result = await emailProvider.sendEmail(
                       email: emailProvider.email,
                       name: "PORTIFOLIO EMAIL",
                       message: emailProvider.message,
                       title: "EMAIL FROM PORTIFOLIO"
-                    );*/
+                    );
 
                     setState(() {
                       emailProvider.clearFields();
                     });
 
                     windowProvider.closeWindow(4);
-                    windowProvider.openWindow(7); //SENDING EMAIL ID  
+                    windowProvider.openWindow(7); //SENDING EMAIL ID
+                    await Future.delayed(Duration(seconds: 3));
+                    windowProvider.closeWindow(7);
+
+                    if (result) {
+                      windowProvider.openWindow(8);
+                    } else {
+                      windowProvider.openWindow(9);
+                    }
                   }
                 },
               )

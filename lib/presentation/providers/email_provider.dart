@@ -36,10 +36,13 @@ class EmailProvider extends ChangeNotifier {
           }
         })
       );
+
+      print(email);
+      print(const String.fromEnvironment("EMAIL_SERVICE_ID"));
       
       _isSending = false;
       notifyListeners();
-
+      print(response.statusCode);
       return response.statusCode == 200;
     } catch (error) {
       _isSending = false;

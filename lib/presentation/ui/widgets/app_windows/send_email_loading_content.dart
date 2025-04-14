@@ -41,6 +41,7 @@ class _SendEmailLoadingContentState extends State<SendEmailLoadingContent> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 100,
                   itemBuilder: (context, index) {
+                    
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 1),
                       child: Container(
