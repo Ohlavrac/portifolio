@@ -69,6 +69,39 @@ class WindowsProvider extends ChangeNotifier {
       hasCloseButton: true,
       hasMinimizeButton: false,
       hasMaximizeButton: false
+    ),
+    WindowModel(
+      windowID: 7,
+      title: "sending_email",
+      isOpen: false,
+      isMinimized: false,
+      windowWidth: 370,
+      windowHeight: 200,
+      hasCloseButton: true,
+      hasMinimizeButton: false,
+      hasMaximizeButton: false
+    ),
+    WindowModel(
+      windowID: 8,
+      title: "email_sent",
+      isOpen: false,
+      isMinimized: false,
+      windowWidth: 370,
+      windowHeight: 200,
+      hasCloseButton: true,
+      hasMinimizeButton: false,
+      hasMaximizeButton: false
+    ),
+    WindowModel(
+      windowID: 9,
+      title: "send_email_error",
+      isOpen: false,
+      isMinimized: false,
+      windowWidth: 370,
+      windowHeight: 200,
+      hasCloseButton: true,
+      hasMinimizeButton: false,
+      hasMaximizeButton: false
     )
   ];
 
@@ -110,6 +143,7 @@ class WindowsProvider extends ChangeNotifier {
     for (int index = 0; index < windowsList.length; index++) {
       if (windowsList[index].windowID == windowId) {
         aux = windowsList[index];
+        break;
       }
     }
 
@@ -132,7 +166,6 @@ class WindowsProvider extends ChangeNotifier {
   void addWindowOpenToWindowsOpenList(WindowModel window) {
     
     if (!windowsOpen.contains(window)) {
-      print(window.title);
       windowsOpen.add(window);
     }
 

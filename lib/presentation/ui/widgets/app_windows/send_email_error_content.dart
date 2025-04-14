@@ -5,8 +5,8 @@ import 'package:portifolio/presentation/ui/widgets/retro_elevated_button_widget.
 import 'package:portifolio/utils/languages.dart';
 import 'package:provider/provider.dart';
 
-class AttentionContent extends StatelessWidget {
-  const AttentionContent({super.key});
+class SendEmailErrorContent extends StatelessWidget {
+  const SendEmailErrorContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class AttentionContent extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold
                 ),
-                child: Text(getTextValueByLanguageKey(languageProvider.lang, "under_construction"), style: TextStyle(fontFamily: "Retro2B", fontSize: 14),)
+                child: Text(getTextValueByLanguageKey(languageProvider.lang, "email_error_msg"), style: TextStyle(fontFamily: "Retro2B", fontSize: 14),)
               )
             ],
           ),
@@ -34,7 +34,7 @@ class AttentionContent extends StatelessWidget {
             height: 30,
             width: 50,
             onPressed: () {
-              context.read<WindowsProvider>().closeWindow(6);
+              context.read<WindowsProvider>().closeWindow(9);
             }
           )
         ],

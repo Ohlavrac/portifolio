@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/email_provider.dart';
 import 'package:portifolio/presentation/providers/language_provider.dart';
+import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/start_button.dart';
 import 'package:portifolio/presentation/ui/widgets/text_input.dart';
 import 'package:portifolio/utils/languages.dart';
@@ -19,6 +20,7 @@ class _SendEmailContentState extends State<SendEmailContent> {
   Widget build(BuildContext context) {
 
     var emailProvider = Provider.of<EmailProvider>(context);
+    var windowProvider = Provider.of<WindowsProvider>(context);
     var languageProvider = Provider.of<LanguageProvider>(context);
 
     return Padding(
@@ -28,7 +30,7 @@ class _SendEmailContentState extends State<SendEmailContent> {
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 5),
-            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold), child: Text("${getValueByLangAndKey(languageProvider.lang, "your_message")}:")),
+            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getTextValueByLanguageKey(languageProvider.lang, "your_message")}:")),
           ),
           TextInput(
             initialValue: emailProvider.message,
@@ -40,7 +42,7 @@ class _SendEmailContentState extends State<SendEmailContent> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 5),
-            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold), child: Text("${getValueByLangAndKey(languageProvider.lang, "your_email")}:")),
+            child: DefaultTextStyle(style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Retro2B"), child: Text("${getTextValueByLanguageKey(languageProvider.lang, "your_email")}:")),
           ),
           TextInput(
             initialValue: emailProvider.email,
@@ -54,16 +56,36 @@ class _SendEmailContentState extends State<SendEmailContent> {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              /*ElevatedButton(
-                onPressed: () {
-                  print("${emailProvider.email} | ${emailProvider.message}");
-                  setState(() {
-                    emailProvider.clearFields();
-                  });    
-                }, 
-                child: Text("SEND EMAIL")
-              )*/
-              StartButton(title: "Send", onPressed: () {},)
+              StartButton(
+                title: "Send",
+                onPressed: () async {
+                  if (emailProvider.email.isEmpty || emailProvider.message.isEmpty) {
+
+                  } else {
+                    bool result = await emailProvider.sendEmail(
+                      email: emailProvider.email,
+                      name: "PORTIFOLIO EMAIL",
+                      message: emailProvider.message,
+                      title: "EMAIL FROM PORTIFOLIO"
+                    );
+
+                    setState(() {
+                      emailProvider.clearFields();
+                    });
+
+                    windowProvider.closeWindow(4);
+                    windowProvider.openWindow(7); //SENDING EMAIL ID
+                    await Future.delayed(Duration(seconds: 3));
+                    windowProvider.closeWindow(7);
+
+                    if (result) {
+                      windowProvider.openWindow(8);
+                    } else {
+                      windowProvider.openWindow(9);
+                    }
+                  }
+                },
+              )
             ],
           )
         ],

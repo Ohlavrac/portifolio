@@ -4,8 +4,11 @@ import 'package:portifolio/presentation/providers/screen_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/attention_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
+import 'package:portifolio/presentation/ui/widgets/app_windows/email_sent_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/my_network_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_content.dart';
+import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_error_content.dart';
+import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_loading_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/spotify_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/user_info.dart';
 import 'package:portifolio/presentation/ui/widgets/desktop_icon.dart';
@@ -36,6 +39,9 @@ class _HomeScreenState extends State<HomeScreen> {
     SendEmailContent(),
     SpotifyContent(),
     AttentionContent(),
+    SendEmailLoadingContent(),
+    EmailSentContent(),
+    SendEmailErrorContent()
   ];
 
   List<IconModel> icons = [
@@ -105,6 +111,9 @@ class _HomeScreenState extends State<HomeScreen> {
           BaseWindow(window: windowsProvider.windowsList[3], content: contents[windowsProvider.windowsList[3].windowID-1]),
           BaseWindow(window: windowsProvider.windowsList[4], content: contents[windowsProvider.windowsList[4].windowID-1]),
           BaseWindow(window: windowsProvider.windowsList[5], content: contents[windowsProvider.windowsList[5].windowID-1]),
+          BaseWindow(window: windowsProvider.windowsList[6], content: contents[windowsProvider.windowsList[6].windowID-1]),
+          BaseWindow(window: windowsProvider.windowsList[7], content: contents[windowsProvider.windowsList[7].windowID-1]),
+          BaseWindow(window: windowsProvider.windowsList[8], content: contents[windowsProvider.windowsList[8].windowID-1]),
           Visibility(visible: true, child: Container(),)
         ],
       ),
@@ -130,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: StartButton(
-                      title: eng[windowsProvider.windowsOpen[index].title],
+                      title: eng["titles"][windowsProvider.windowsOpen[index].title],
                       icon: Image.asset(verifyWindowIcon(windowsProvider.windowsOpen[index].title), scale: 10,),
                       onPressed: () {
                         windowsProvider.openWindow(windowsProvider.windowsOpen[index].windowID);
