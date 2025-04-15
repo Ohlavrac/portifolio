@@ -16,6 +16,7 @@ import 'package:portifolio/presentation/ui/widgets/start_button.dart';
 import 'package:portifolio/utils/languages.dart';
 import 'package:portifolio/utils/verify_windows_icon.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../domain/models/icon_model.dart';
 
@@ -95,9 +96,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: icons[index].height,
                     title: icons[index].title,
                     onPressed: () {
-                      setState(() {
-                        windowsProvider.openWindow(icons[index].windowId);
-                        windowsProvider.windowReposition(icons[index].windowId);
+                      setState(() async {
+                        //TODO: TEMP DESABLE EMAIL WINDOW
+                        if (icons[index].windowId == 4) { //WITH THIS USER SEND TO EMAIL
+                          Uri url = Uri.parse("https://mailto:joaovicrcarvalho@gmail.com");
+                          await launchUrl(url);
+                        } else {
+                          windowsProvider.openWindow(icons[index].windowId);
+                          windowsProvider.windowReposition(icons[index].windowId);
+                        }
                       });
                     },
                   ),

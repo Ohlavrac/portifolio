@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+import "dart:js" as js;
 
 class EmailProvider extends ChangeNotifier {
   bool _isSending = false;
@@ -39,7 +40,6 @@ class EmailProvider extends ChangeNotifier {
       );
 
       print(email);
-      print(const String.fromEnvironment("EMAIL_SERVICE_ID"));
       
       _isSending = false;
       notifyListeners();
