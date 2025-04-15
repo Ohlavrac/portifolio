@@ -22,6 +22,8 @@ class EmailProvider extends ChangeNotifier {
     notifyListeners();
     final emailServiceURL = Uri.parse("https://api.emailjs.com/api/v1.0/email/send");
 
+    print(js.context["email_service_id"]);
+
     try {
       final response = await http.post(
         emailServiceURL,
