@@ -22,16 +22,14 @@ class EmailProvider extends ChangeNotifier {
     notifyListeners();
     final emailServiceURL = Uri.parse("https://api.emailjs.com/api/v1.0/email/send");
 
-    print(js.context["email_service_id"]);
-
     try {
       final response = await http.post(
         emailServiceURL,
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
-          "service_id": js.context["email_service_id"], //dotenv.env["EMAIL_SERVICE_ID"] ?? const String.fromEnvironment("EMAIL_SERVICE_ID"),
-          "template_id": js.context["email_template_id"], //dotenv.env["EMAIL_TEMPLATE_ID"] ?? const String.fromEnvironment("EMAIL_TEMPLATE_ID"),
-          "user_id": js.context["email_user_id"], //dotenv.env["EMAIL_USER_ID"] ?? const String.fromEnvironment("EMAIL_USER_ID"),
+          "service_id": dotenv.env["EMAIL_SERVICE_ID"] ?? const String.fromEnvironment("EMAIL_SERVICE_ID"),
+          "template_id": dotenv.env["EMAIL_TEMPLATE_ID"] ?? const String.fromEnvironment("EMAIL_TEMPLATE_ID"),
+          "user_id": dotenv.env["EMAIL_USER_ID"] ?? const String.fromEnvironment("EMAIL_USER_ID"),
           "template_params": {
             "name": name,
             "email": email,
