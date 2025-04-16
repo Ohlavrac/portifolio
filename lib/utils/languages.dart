@@ -2,7 +2,7 @@ Map<String, dynamic> eng = {
   "titles": {
     "informations_title": "Informations",
     "send_email_title": "Send Email",
-    "social_title": "Social Medias",
+    "projects_title": "My Projects",
     "my_network_title": "My Network",
     "spotify_title": "Spotify",
     "warning_title": "Warning",
@@ -37,7 +37,7 @@ Map<String, dynamic> ptbr = {
   "titles": {
     "informations_title": "Informações",
     "send_email_title": "Enviar Email",
-    "social_title": "Redes Sociais",
+    "projects_title": "Meus Projetos",
     "my_network_title": "Minha Rede",
     "spotify_title": "Spotify",
     "warning_title": "Atenção",

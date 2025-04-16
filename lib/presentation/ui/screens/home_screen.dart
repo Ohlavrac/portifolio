@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
     IconModel(id: 1, windowId: 2, imageUrl: "./assets/icons/my-computer-icon-3.png", title: "My Computer"),
     IconModel(id: 2, windowId: 1, imageUrl: "./assets/icons/my-network-icon-2.png", title: "My Network"),
     IconModel(id: 3, windowId: 4, imageUrl: "./assets/icons/email-icon.png", title: "Send Email"),
-    IconModel(id: 4, windowId: 3, imageUrl: "./assets/icons/msn-icon.png", title: "Social"),
+    IconModel(id: 4, windowId: 3, imageUrl: "./assets/icons/program-group-icon.png", title: "Projects"),
     IconModel(id: 5, windowId: 5, imageUrl: "./assets/icons/song-icon.png", title: "Spotify"),
   ];
 

@@ -28,7 +28,7 @@ class WindowsProvider extends ChangeNotifier {
     ),
     WindowModel(
       windowID: 3,
-      title: "social_title",
+      title: "projects_title",
       isOpen: false,
       isMinimized: false,
       windowWidth: 400, 
