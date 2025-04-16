@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:portifolio/presentation/ui/widgets/retro_elevated_button_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -30,6 +31,26 @@ class MyNetworkContent extends StatelessWidget {
                   color: Colors.black,
                   height: 3,
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  DefaultTextStyle(style: TextStyle(fontFamily: "Retro2B") ,child: Text("joaovicrcarvalho@gmail.com")),
+                  RetroElevatedButtonWidget(title: "Copy", onPressed: () async {
+                    await Clipboard.setData(ClipboardData(text: "joaovicrcarvalho@gmail.com"));
+                  })
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Divider(
+                color: Colors.black,
+                height: 3,
+              ),
+              SizedBox(
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
