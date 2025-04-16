@@ -95,17 +95,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     imageUrl: icons[index].imageUrl,
                     height: icons[index].height,
                     title: icons[index].title,
-                    onPressed: () {
-                      setState(() async {
-                        //TODO: TEMP DESABLE EMAIL WINDOW
-                        if (icons[index].windowId == 4) { //WITH THIS USER SEND TO EMAIL
-                          Uri url = Uri.parse("https://mailto:joaovicrcarvalho@gmail.com");
-                          await launchUrl(url);
-                        } else {
-                          windowsProvider.openWindow(icons[index].windowId);
-                          windowsProvider.windowReposition(icons[index].windowId);
-                        }
-                      });
+                    onPressed: () async {
+                      //TODO: TEMP DESABLE EMAIL WINDOW
+                      if (icons[index].windowId == 4) { //WITH THIS USER SEND TO EMAIL
+                        Uri url = Uri.parse("https://mailto:joaovicrcarvalho@gmail.com");
+                        await launchUrl(url);
+                      } else {
+                        windowsProvider.openWindow(icons[index].windowId);
+                        windowsProvider.windowReposition(icons[index].windowId);
+                      }
                     },
                   ),
                 ],
