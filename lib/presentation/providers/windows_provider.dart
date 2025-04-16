@@ -21,7 +21,7 @@ class WindowsProvider extends ChangeNotifier {
       isOpen: true,
       isMinimized: false,
       windowWidth: 400, 
-      windowHeight: 620,
+      windowHeight: 640,
       hasCloseButton: true,
       hasMinimizeButton: true,
       hasMaximizeButton: true
