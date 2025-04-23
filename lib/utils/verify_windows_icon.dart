@@ -4,8 +4,8 @@ String verifyWindowIcon(String windowTitle) {
       return "./assets/icons/my-computer-icon-3.png";
     case "send_email_title":
       return "./assets/icons/email-icon.png";
-    case "social_title":
-      return "./assets/icons/msn-icon.png";
+    case "projects_title":
+      return "./assets/icons/program-group-icon.png";
     case "my_network_title":
       return "./assets/icons/my-network-icon-2.png";
     case "spotify_title":

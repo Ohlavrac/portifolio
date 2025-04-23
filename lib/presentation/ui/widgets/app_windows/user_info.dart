@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/presentation/providers/language_provider.dart';
+import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/utils/languages.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +11,7 @@ class UserInfo extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var languageProvider = Provider.of<LanguageProvider>(context);
+    var windowProvider = Provider.of<WindowsProvider>(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,6 +76,23 @@ class UserInfo extends StatelessWidget {
           padding: const EdgeInsets.only(top: 2, bottom: 10),
           child: DefaultTextStyle(style: TextStyle(fontFamily: "Retro2"), child: Text(getTextValueByLanguageKey(languageProvider.lang, "languages_content")),),
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            TextButton(
+              onPressed: () {
+                windowProvider.openWindow(3);
+              },
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.zero,
+                minimumSize: Size(50, 30),
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                alignment: Alignment.centerLeft
+              ), 
+              child: Text("my-projects ->", style: TextStyle(fontSize: 12, color: Colors.black, fontFamily: "Retro2B"),),
+            ),
+          ],
+        )
       ],
     );
   }
