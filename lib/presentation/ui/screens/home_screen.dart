@@ -6,6 +6,7 @@ import 'package:portifolio/presentation/ui/widgets/app_windows/attention_content
 import 'package:portifolio/presentation/ui/widgets/app_windows/base_window.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/email_sent_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/my_network_content.dart';
+import 'package:portifolio/presentation/ui/widgets/app_windows/projects_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_error_content.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/send_email_loading_content.dart';
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> contents = [
     MyNetworkContent(),
     UserInfo(),
-    Text("Ola Mundo III"),
+    ProjectsContent(),
     SendEmailContent(),
     SpotifyContent(),
     AttentionContent(),

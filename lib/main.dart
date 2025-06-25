@@ -5,4 +5,4 @@ import 'package:portifolio/app_widget.dart';
 void main() async {
   //await dotenv.load(fileName: ".env");
   runApp(const AppWidget());
-} 
+}
