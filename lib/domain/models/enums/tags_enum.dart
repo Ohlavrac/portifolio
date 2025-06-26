@@ -1,4 +1,5 @@
 enum TagsEnum {
+  all,
   mobile,
   web,
   flutter,
