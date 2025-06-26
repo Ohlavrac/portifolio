@@ -27,7 +27,7 @@ class _ProjectsContentState extends State<ProjectsContent> {
             itemBuilder: (context, index) {
               return TextButton(
                 onPressed: () {}, 
-                child: Text(TagsEnum.values[index].name)
+                child: Text(TagsEnum.values[index].name, style: TextStyle(color: Colors.black, fontFamily: "Retro2B"),)
               );
             }
           ),
