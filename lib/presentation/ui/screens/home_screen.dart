@@ -96,6 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     imageUrl: icons[index].imageUrl,
                     height: icons[index].height,
                     title: icons[index].title,
+                    textColor: Colors.white,
                     onPressed: () async {
                       //TODO: TEMP DESABLE EMAIL WINDOW
                       if (icons[index].windowId == 4) { //WITH THIS USER SEND TO EMAIL
