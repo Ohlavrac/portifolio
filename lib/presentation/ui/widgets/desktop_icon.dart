@@ -4,9 +4,10 @@ class DesktopIcon extends StatelessWidget {
   final String imageUrl;
   final double height;
   final String title;
+  final Color textColor;
   final VoidCallback onPressed;
 
-  const DesktopIcon({super.key, required this.imageUrl, required this.height, required this.title, required this.onPressed});
+  const DesktopIcon({super.key, required this.imageUrl, required this.height, required this.title, required this.onPressed, required this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class DesktopIcon extends StatelessWidget {
               children: [
                 Image.asset(imageUrl, height: height, width: height,),
                 SizedBox(height: 3),
-                Text(title, style: TextStyle(color: Colors.white, fontFamily: "Retro2"), maxLines: 2)
+                Text(title, style: TextStyle(color: textColor, fontFamily: "Retro2"), maxLines: 2)
               ],
             ),
           ),
