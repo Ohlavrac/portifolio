@@ -31,8 +31,8 @@ class WindowsProvider extends ChangeNotifier {
       title: "projects_title",
       isOpen: false,
       isMinimized: false,
-      windowWidth: 400, 
-      windowHeight: 600,
+      windowWidth: 700, 
+      windowHeight: 500,
       hasCloseButton: true,
       hasMinimizeButton: true,
       hasMaximizeButton: true

@@ -170,6 +170,7 @@ class _BaseWindowState extends State<BaseWindow> {
                     });
                   }
                 ),
+                
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                   child: Container(
