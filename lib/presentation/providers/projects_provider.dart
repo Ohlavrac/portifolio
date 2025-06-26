@@ -3,6 +3,8 @@ import 'package:portifolio/domain/models/enums/tags_enum.dart';
 import 'package:portifolio/domain/models/project_model.dart';
 
 class ProjectsProvider extends ChangeNotifier {
+  TagsEnum currentTag = TagsEnum.all;
+  List<ProjectModel> result = [];
 
   List<ProjectModel> projects = [
     ProjectModel(
@@ -27,4 +29,24 @@ class ProjectsProvider extends ChangeNotifier {
     ),
   ];
 
+  void getProjects(TagsEnum tag) {
+    for (int i = 0; i < projects.length; i++) {
+      if (projects[i].tags.contains(tag)) {
+        result.add(projects[i]);
+      } else {
+        if (tag == TagsEnum.all) {
+          result.add(projects[i]);
+        }
+      }
+    }
+
+    notifyListeners();
+  }
+
+
+  void selectTag(TagsEnum tag) {
+    currentTag = tag;
+    result.clear();
+    notifyListeners();
+  }
 }

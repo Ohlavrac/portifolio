@@ -26,7 +26,12 @@ class _ProjectsContentState extends State<ProjectsContent> {
             itemCount: TagsEnum.values.length,
             itemBuilder: (context, index) {
               return TextButton(
-                onPressed: () {}, 
+                onPressed: () {
+                  setState(() {
+                    projectsProvider.selectTag(TagsEnum.values[index]);
+                    projectsProvider.getProjects(TagsEnum.values[index]);
+                  });
+                }, 
                 child: Text(TagsEnum.values[index].name, style: TextStyle(color: Colors.black, fontFamily: "Retro2B"),)
               );
             }
@@ -49,12 +54,12 @@ class _ProjectsContentState extends State<ProjectsContent> {
               mainAxisExtent: 110,
               crossAxisSpacing: 10
             ),
-            itemCount: projectsProvider.projects.length, 
+            itemCount: projectsProvider.result.length, 
             itemBuilder: (context, index) {
               return DesktopIcon(
                 imageUrl: "./assets/icons/program-group-icon.png", 
                 height: 50,
-                title: projectsProvider.projects[index].title, 
+                title: projectsProvider.result[index].title, 
                 textColor: Colors.black,
                 onPressed: () {}
               );

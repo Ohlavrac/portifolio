@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/domain/models/enums/tags_enum.dart';
 import 'package:portifolio/presentation/providers/language_provider.dart';
+import 'package:portifolio/presentation/providers/projects_provider.dart';
 import 'package:portifolio/presentation/providers/screen_provider.dart';
 import 'package:portifolio/presentation/providers/windows_provider.dart';
 import 'package:portifolio/presentation/ui/widgets/app_windows/attention_content.dart';
@@ -74,6 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
     var screenProvider = Provider.of<ScreenProvider>(context);
     var windowsProvider = Provider.of<WindowsProvider>(context);
     var languageProvider = Provider.of<LanguageProvider>(context);
+    var projectsProvider = context.read<ProjectsProvider>();
 
     screenProvider.screenHeight = height;
     screenProvider.screenWidth = width;
@@ -102,6 +105,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       if (icons[index].windowId == 4) { //WITH THIS USER SEND TO EMAIL
                         Uri url = Uri.parse("https://mailto:joaovicrcarvalho@gmail.com");
                         await launchUrl(url);
+                      } else if (icons[index].windowId == 3) {
+                        windowsProvider.openWindow(icons[index].windowId);
+                        windowsProvider.windowReposition(icons[index].windowId);
+                        projectsProvider.getProjects(TagsEnum.all);
                       } else {
                         windowsProvider.openWindow(icons[index].windowId);
                         windowsProvider.windowReposition(icons[index].windowId);
